@@ -1,0 +1,75 @@
+<!-- Start of Settings Content -->
+        <div  id="settings" >
+        <section class="sectionSettings">
+
+            <h1>Settings</h1>
+            <form name="settingsForm" data-ng-submit="settingsVm.validate(settingsForm.$valid)"  novalidate>
+            <table class="tblSettings">
+                <tr>
+                <td><label >Auto Assign</label></td>
+                <td><input type="radio" name="autoAssign" value="Yes" checked>Yes
+                <input type="radio" name="autoAssign" value="No" >No
+                
+                
+                </td>
+                </tr>
+                <tr>
+                    <td> <label for="restaurantOpenTimings">Restaurant Open Timings</label></td>
+                    <td> <input type="time"  name="openTime" id="restaurantOpenTimings" data-ng-model="settingsVm.openTime" required/>
+                    
+                     <div data-ng-messages="settingsForm.openTime.$error" class="has-error" data-ng-if="settingsForm.openTime.$dirty">
+           <p data-ng-message="required">Restaurant Open Timings is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="settingsForm.openTime.$pristine && settingsVm.settingsFormSubmitted">Restaurant Open Timings is required</p>
+               </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label for="restaurantCloseTimings">Restaurant Closing Timings</label></td>
+                    <td> <input type="time" name="closeTime" id="restaurantCloseTimings" data-ng-model="settingsVm.closeTime" required/>
+                     <div data-ng-messages="settingsForm.closeTime.$error" class="has-error" data-ng-if="settingsForm.closeTime.$dirty">
+           <p data-ng-message="required">Restaurant Closing Timings is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="settingsForm.closeTime.$pristine && settingsVm.settingsFormSubmitted">Restaurant Closing Timings is required</p>
+               </div>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label>Restaurant Open Days</label> </td>
+                    <td>
+                    <input type="checkbox" name="Opendays" value="Sunday" >Sunday
+                    <input type="checkbox" name="Opendays" value="Monday" checked >Monday
+                    <input type="checkbox" name="Opendays" value="Tuesday" >Tuesday
+                    <input type="checkbox" name="Opendays" value="Wednesday" >Wednesday
+                    <input type="checkbox" name="Opendays" value="Thursday" >Thursday
+                    <input type="checkbox" name="Opendays" value="Friday" >Friday
+                    <input type="checkbox" name="Opendays" value="Saturday" >Saturday
+                                      
+                    </td>
+                </tr>
+                <tr>
+                    <td> <label>Restaurant Closing Days</label> </td>
+                     <td>   <input type="checkbox" name="Closingdays" value="Sunday" checked >Sunday
+                        <input type="checkbox" name="Closingdays" value="Monday" >Monday
+                        <input type="checkbox" name="Closingdays" value="Tuesday" >Tuesday
+                        <input type="checkbox" name="Closingdays" value="Wednesday" >Wednesday
+                        <input type="checkbox" name="Closingdays" value="Thursday" >Thursday
+                        <input type="checkbox" name="Closingdays" value="Friday" >Friday
+                        <input type="checkbox" name="Closingdays" value="Saturday" >Saturday
+                      
+                    </td>
+                </tr>
+            </table>
+          
+            <div class="divCenter"><button type="submit" class="button" >Update</button> </div>
+              </form>
+        </section>
+
+        </div>
+
+        <!-- End of Settings Content -->

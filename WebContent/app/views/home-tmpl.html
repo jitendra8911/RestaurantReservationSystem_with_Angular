@@ -1,0 +1,72 @@
+ <!-- Home page content -->
+        <div id="home">
+            <section>
+                <introduction class="description"><h1>Welcome to Jitendra's restaurant</h1> <br>
+                    Open Hours : 11:00 AM to 3:00 PM and 5:00 PM to 11:00PM <br>
+                    Closing Hours : 2:00 PM to 5:00 PM <br>
+                    Closing Days : We are closed on Wednesday's
+                </introduction>
+            </section>
+            <section class="container">
+                <div class="row">
+                <div class="col-xs-6">
+                <form name="findATableForm" data-ng-submit="homeVm.FindATableForm(findATableForm.$valid)" novalidate>
+                    <div class="divReservationDetails">
+            <span class="TableReservationDetails">
+                <select>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="5">5 Person</option>
+                    <option value="6">6 People</option>
+                    <option value="7">7 People</option>
+                    <option value="8">8 People</option>
+                </select>
+            </span>
+            <span class="TableReservationDetails">
+                <input type="date" name="inputDate" class="dateInputField" data-ng-model="homeVm.inputDate" placeholder="mm/dd/yyyy"  required/>
+                 <div data-ng-messages="findATableForm.inputDate.$error" class="has-error" data-ng-if="findATableForm.inputDate.$dirty">
+           <p data-ng-message="required">Date field is required</p> 
+               </div>
+            
+            </span>
+            <span class="TableReservationDetails">
+                <input type="time"  name="inputTime" data-ng-model="homeVm.inputTime"  placeholder="HH:mm (24hr clock)" required/>
+                  <div data-ng-messages="findATableForm.inputTime.$error" class="has-error" data-ng-if="findATableForm.inputTime.$dirty">
+           <p data-ng-message="required">Time field is required</p> 
+               </div>
+            </span>
+                    </div>
+                    <div class="divCreateReservation">
+                        <button type="submit" class="button">Find a table</button>
+                    </div>
+                         </form>
+                </div>
+            
+                <div class="col-xs-6">
+                <form name="reserveTableForm" data-ng-submit="homeVm.reserveTableForm(reserveTableForm.$valid)" novalidate>
+                    <div class="divEditReservationDetails">
+            <span class="EditReservationDetails">
+                <label for="Confirmation Code">Confirmation Code</label>
+            </span>
+            <span class="EditReservationDetails" id="Confirmation Code">
+                <input type="text" name="confirmationCode" data-ng-model="homeVm.confirmationCode" class="textInputField" required/>
+                  <div data-ng-messages="reserveTableForm.confirmationCode.$error" class="has-error" data-ng-if="reserveTableForm.confirmationCode.$dirty">
+           <p data-ng-message="required">Confirmation Code is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="reserveTableForm.confirmationCode.$pristine && homeVm.reserveTableFormsubmitted">Confirmation Code is required </p>
+               </div>
+            </span>
+                    </div>
+                    <div class="divEditReservation">
+                    <button type="submit" class="button">Edit Reservation</button>
+                        </div>
+                   </form>
+                </div>
+                </div>
+            </section>
+        </div>
+        <!-- end of home page content -->

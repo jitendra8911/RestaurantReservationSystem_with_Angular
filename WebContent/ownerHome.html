@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="restaurantReservationSystem">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Welcome to Jitendra's Restaurant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        document.createElement("introduction");
+    </script>
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/ownerHome.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="divHeader">Jitendra Restaurant</div>
+    </header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+        <div class="divNav">
+            <ul class="nav navbar-nav">
+                <li id="liHome">  <a data-toggle="tab" href="#/home" class="menu">Home</a> </li>
+          <li id="idViewReservation">  <a data-toggle="tab" href="#/viewReservation" class="menu">View Reservation</a> </li>
+          <li>  <a data-toggle="tab" href="#/viewSeatingArea" class="menu">View Seating Area</a> </li>
+          <li> <a data-toggle="tab" href="#/profile" class="menu">Profile</a> </li>
+           <li><a data-toggle="tab" href="#/settings" class="menu">Settings</a></li>
+          <li><a data-toggle="tab" href="#/viewContacts" class="menu">View Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section data-ng-view>
+    
+    </section>
+  
+    <div class="push"></div>
+</div>
+<footer class="footer">
+    <div class="divFooter">2015 © Jitendra Malakalapalli. All Rights Reserved.</div>
+</footer>
+
+
+
+<!-- start of script tags -->
+
+<!-- start of browser support -->
+<!--[if lt IE 9]>
+<script src="vendor/js/html5shiv.js"></script>
+<![endif]-->
+
+
+
+<!-- end of browser support -->
+  <script src="vendor/js/angular.js"></script>
+  <script src="vendor/js/angular-route.js"></script>
+    <script src="vendor/js/angular-messages.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controllers/login-controller.js"></script>
+    <script src="app/controllers/home-controller.js"></script>
+      <script src="app/controllers/editReservation-controller.js"></script>
+    <script src="app/controllers/reserve-controller.js"></script>
+  <script src="app/controllers/changeAssignTable-controller.js"></script>
+    <script src="app/controllers/viewContacts-controller.js"></script>
+      <script src="app/controllers/profile-controller.js"></script>
+    <script src="app/controllers/settings-controller.js"></script>
+     <script src="app/controllers/viewReservation-controller.js"></script>
+    <script src="app/controllers/viewSeating-controller.js"></script>
+    <script src="app/filters/phone-filter.js"></script>
+<!-- end of script tags -->
+
+
+</body>
+</html>

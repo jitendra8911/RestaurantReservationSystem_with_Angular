@@ -1,0 +1,83 @@
+ <!-- start of Profile Content -->
+        <div  id="profile" >
+            <section class="sectionProfile">
+                <h1>Profile</h1>
+                <form name="profileForm" data-ng-submit="profileVm.validate(profileForm.$valid)"  novalidate>
+                <div class="divProfile">
+                    <span class="spanProfile">
+                        <label for="ProfileFirstName">FirstName</label>
+                    </span>
+                    <span class="spanProfile" id="ProfileFirstName">
+                        <input name="firstName" type="text" data-ng-model="profileVm.firstName" required/>
+                    </span>
+                     <div data-ng-messages="profileForm.firstName.$error" class="has-error" data-ng-if="profileForm.firstName.$dirty">
+           <p data-ng-message="required">FirstName is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="profileForm.firstName.$pristine && profileVm.profileFormsubmitted">FirstName is required</p>
+               </div>
+                </div>
+
+                <div class="divProfile">
+                    <span class="spanProfile">
+                        <label for="ProfileLastName">LastName</label>
+                    </span>
+                    <span class="spanProfile" id="ProfileLastName">
+                        <input name="lastName" type="text" data-ng-model="profileVm.lastName" required/>
+                    </span>
+                    
+                     <div data-ng-messages="profileForm.lastName.$error" class="has-error" data-ng-if="profileForm.lastName.$dirty">
+           <p data-ng-message="required">LastName is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="profileForm.lastName.$pristine && profileVm.profileFormsubmitted">LastName is required</p>
+               </div>
+                 </div>
+
+                <div class="divProfile">
+                    <span class="spanProfile">
+                        <label for="ProfileTelephone">Telephone</label>
+                    </span>
+                    <span class="spanProfile" id="ProfileTelephone">
+                        <input type="tel" name="telephone" placeholder="999-999-9999" data-ng-model="profileVm.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/' >
+                    </span>
+                     <div data-ng-messages="profileForm.telephone.$error" class="has-error" data-ng-if="profileForm.telephone.$dirty">
+           <p data-ng-message="required">Telephone number is required</p> 
+           <p data-ng-message="pattern">Telephone number should be in 999-999-9999 format</p>
+               </div>
+               <div class="has-error">
+               <p data-ng-show="profileForm.telephone.$pristine && profileVm.profileFormsubmitted">Telephone number is required</p>
+               </div>
+                </div>
+
+                <div class="divProfile">
+                    <span class="spanProfile">
+                        <label for="ProfileEmail">Email</label>
+                    </span>
+                    <span class="spanProfile" id="ProfileEmail">
+                        <input type="email" name="email" placeholder="example@domain.com" data-ng-model="profileVm.email" required/>
+                    </span>
+                    <div data-ng-messages="profileForm.email.$error" class="has-error" data-ng-if="profileForm.email.$dirty">
+           <p data-ng-message="required">Email is required</p> 
+            <p data-ng-message="email">Email is invalid</p>
+               </div>
+               <div class="has-error">
+               <p data-ng-show="profileForm.email.$pristine && profileVm.profileFormsubmitted">Email is required</p>
+               </div>
+                  
+                </div>
+
+
+
+                <div class="divProfile">
+                    <span class="spanProfile">
+                        <button type="submit"  class="button" >Update</button>
+                    </span>
+                </div>
+                </form>
+            </section>
+
+        </div>
+        <!-- End of Profile Content -->

@@ -1,0 +1,64 @@
+
+<!-- start of Create Reservation content -->
+<div id="createReservation">
+	<section class="sectionReservation">
+
+		<h1>Reservation</h1>
+		<form name="reservationForm" data-ng-submit="reserveVm.validate(reservationForm.$valid)" novalidate>
+			<div class="divReserve">
+				<span class="createReservationFields"> <label for="FirstName">FirstName</label>
+				</span> <span class="createReservationFields" id="FirstName"> <input
+					name="FirstName" type="text" data-ng-model="reserveVm.FirstName" required/>
+				</span>
+ <div data-ng-messages="reservationForm.FirstName.$error" class="has-error" data-ng-if="reservationForm.FirstName.$dirty">
+           <p data-ng-message="required">FirstName is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="reservationForm.FirstName.$pristine && reserveVm.reserveFormSubmitted">FirstName is required</p>
+               </div>
+			</div>
+
+			<div class="divReserve">
+				<span class="createReservationFields"> <label for="LastName">LastName</label>
+				</span> <span class="createReservationFields" id="LastName"> <input
+					name="LastName" type="text" data-ng-model="reserveVm.LastName" required/>
+				</span>
+				<div data-ng-messages="reservationForm.LastName.$error" class="has-error" data-ng-if="reservationForm.LastName.$dirty">
+           <p data-ng-message="required">LastName is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="reservationForm.LastName.$pristine && reserveVm.reserveFormSubmitted">LastName is required</p>
+               </div>
+
+			</div>
+
+
+			<div class="divReserve">
+				<span class="createReservationFields"> <label for="Telephone">Telephone</label>
+				</span> <span class="createReservationFields" id="Telephone"> <input
+					type="tel" name="Telephone" placeholder="999-999-9999" data-ng-model="reserveVm.Telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'/>
+				</span>
+ <div data-ng-messages="reservationForm.Telephone.$error" class="has-error" data-ng-if="reservationForm.Telephone.$dirty">
+           <p data-ng-message="required">Telephone number is required</p> 
+           <p data-ng-message="pattern">Telephone number should be in 999-999-9999 format</p>
+               </div>
+               <div class="has-error">
+               <p data-ng-show="reservationForm.Telephone.$pristine && reserveVm.reserveFormSubmitted">Telephone number is required</p>
+               </div>
+                </div>
+			
+
+
+			<div class="divReserve">
+				<div class="createReservationFields">
+				<button type="submit" class="button">Reserve</button>
+					
+				</div>
+			</div>
+</form>
+	</section>
+</div>
+
+<!-- end of Create Reservation Content -->

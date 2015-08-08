@@ -1,0 +1,1 @@
+This is the Restaurant Reservation System project whose UI was already developed earlier and now is extended to angular js

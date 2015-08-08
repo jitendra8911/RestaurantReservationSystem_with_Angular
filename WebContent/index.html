@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="restaurantReservationSystem">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Welcome to Jitendra's Restaurant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        document.createElement("introduction");
+    </script>
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="divHeader">Jitendra's Restaurant</div>
+    </header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="divNav">
+                <ul class="nav navbar-nav">
+                    <li id="liHome"><a data-toggle="tab" href="#/home" class="menu">Home</a></li>
+                    <li><a data-toggle="tab" href="#/login" class="menu">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    
+    
+     <section data-ng-view>
+    
+    </section>
+
+
+    <div class="push"></div>
+</div>
+<footer class="footer">
+    <div class="divFooter">2015 © Jitendra Malakalapalli. All Rights Reserved.</div>
+</footer>
+
+
+<!-- start of script tags -->
+<!--[if lt IE 9]>
+<script src="Scripts/html5shiv.js"></script>
+<![endif]-->
+  <script src="vendor/js/angular.js"></script>
+  <script src="vendor/js/angular-route.js"></script>
+  <script src="vendor/js/angular-messages.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controllers/login-controller.js"></script>
+    <script src="app/controllers/home-controller.js"></script>
+      <script src="app/controllers/editReservation-controller.js"></script>
+    <script src="app/controllers/reserve-controller.js"></script>
+      <!-- end of script tags -->
+</body>
+
+</html>

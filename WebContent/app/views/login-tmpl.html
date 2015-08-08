@@ -1,0 +1,57 @@
+  <!-- start of Login Content -->
+        <div id="login">
+            <section class="sectionLogin">
+                <h1>Login</h1>
+    <span>
+<form name="loginForm" data-ng-submit="loginVm.authenticate(loginForm.$valid)"  novalidate>
+    <div>
+        <div class="login">
+            <label for="Username">Username</label>
+        </div>
+        <div class="login" id="Username">
+            <input name="Username" type="text" data-ng-model="loginVm.username" required/>
+            <div data-ng-messages="loginForm.Username.$error" class="has-error" data-ng-if="loginForm.Username.$dirty">
+           <p data-ng-message="required">Username is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="loginForm.Username.$pristine && loginVm.loginFormsubmitted">Username is required</p>
+               </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="login">
+            <label for="Password">Password</label>
+        </div>
+        <div class="login" id="Password">
+            <input name="Password" type="password"  data-ng-model="loginVm.Password" required/>
+             <div data-ng-messages="loginForm.Password.$error" class="has-error" data-ng-if="loginForm.Password.$dirty">
+           <p data-ng-message="required">Password is required</p> 
+           
+               </div>
+               <div class="has-error">
+               <p data-ng-show="loginForm.Password.$pristine && loginVm.loginFormsubmitted">Password is required</p>
+               </div>
+        </div>
+    </div>
+
+
+    <div>
+    
+        <div class="login" >
+         <button type="submit" formaction="ownerHome.html"  class="button">Login</button>
+        </div>
+        <div class="login">
+         <button type="submit"   class="button" data-ng-click="loginVm.forgotPassword()" formaction="http://www.google.com">Forgot Password</button>
+        </div>
+       
+    </div>
+    </form>
+           
+    </span>
+            </section>
+
+        </div>
+
+        <!-- end of Login Content -->

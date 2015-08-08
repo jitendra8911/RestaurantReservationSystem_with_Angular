@@ -1,0 +1,63 @@
+ <!-- start of Edit Reservation Content -->
+        <div id="editReservation">
+
+            <section class="sectionReservation">
+                <h1>Edit</h1>
+                <form name="editReservationForm" data-ng-submit="editReserveVm.validate(editReservationForm.$valid)"  novalidate>
+                <div class="divEdit">
+                    <span class="editReservationInputFields">
+                        <select>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 Person</option>
+                            <option value="6">6 People</option>
+                            <option value="7">7 People</option>
+                            <option value="8">8 People</option>
+                        </select>
+                    </span>
+                    <span class="editReservationInputFields">
+                        <input name="inputDate" type="date" data-ng-model="editReserveVm.inputDate" placeholder="mm/dd/yyyy"  required/>
+                        <div data-ng-messages="editReservationForm.inputDate.$error" class="has-error" data-ng-if="editReservationForm.inputDate.$dirty">
+           <p data-ng-message="required">Date field is required</p> 
+               </div>
+                    </span>
+                    <span class="editReservationInputFields">
+                        <input name="inputTime" type="time" data-ng-model="editReserveVm.inputTime"  placeholder="HH:mm (24hr clock)" required/>
+                          <div data-ng-messages="editReservationForm.inputTime.$error" class="has-error" data-ng-if="editReservationForm.inputTime.$dirty">
+           <p data-ng-message="required">Time field is required</p> 
+               </div>
+                    </span>
+                    <span class="editReservationInputFields">
+                        <input name="telephone" type="tel" placeholder="999-999-9999" data-ng-model="editReserveVm.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'/>
+                        <div data-ng-messages="editReservationForm.telephone.$error" class="has-error" data-ng-if="editReservationForm.telephone.$dirty">
+           <span data-ng-message="required">Telephone number is required</span> 
+           <span data-ng-message="pattern">Telephone number should be in 999-999-9999 format</span>
+               </div>
+               <div class="has-error">
+               <span data-ng-show="editReservationForm.telephone.$pristine && editReserveVm.editReservationFormSubmitted">Telephone number is required</span>
+               </div>
+                    </span>
+                </div>
+                <div>
+                <button type="submit"  class="button" >Update Reservation</button>
+                     </div>
+                 </form>
+            </section>
+
+            <section class="sectionReservation">
+                <h1>Cancel Reservation</h1>
+
+                <p>If you want to cancel the reservation, please click cancel below. Once canceled, the reservation
+                    cannot be undone.</p>
+
+                <div>
+                    <input type="button" value="Cancel Reservation" class="button"/>
+                </div>
+                
+               
+            </section>
+
+        </div>
+        <!-- end of Edit Reservation Content -->
