@@ -1,7 +1,7 @@
-  <!-- start of Login Content -->
-        <div id="login">
-            <section class="sectionLogin">
-                <h1>Login</h1>
+<!-- start of Login Content -->
+<div id="login">
+    <section class="sectionLogin">
+        <h1>Login</h1>
     <span>
 <form name="loginForm" data-ng-submit="loginVm.authenticate(loginForm.$valid)"  novalidate>
     <div>
@@ -9,14 +9,14 @@
             <label for="Username">Username</label>
         </div>
         <div class="login" id="Username">
-            <input name="Username" type="text" data-ng-model="loginVm.username" required/>
+            <input name="Username" type="text" data-ng-model="loginVm.adminDetails.loginId" required/>
             <div data-ng-messages="loginForm.Username.$error" class="has-error" data-ng-if="loginForm.Username.$dirty">
-           <p data-ng-message="required">Username is required</p> 
-           
-               </div>
-               <div class="has-error">
-               <p data-ng-show="loginForm.Username.$pristine && loginVm.loginFormsubmitted">Username is required</p>
-               </div>
+                <p data-ng-message="required">Username is required</p>
+
+            </div>
+            <div class="has-error">
+                <p data-ng-show="loginForm.Username.$pristine && loginVm.loginFormsubmitted">Username is required</p>
+            </div>
         </div>
     </div>
 
@@ -25,33 +25,36 @@
             <label for="Password">Password</label>
         </div>
         <div class="login" id="Password">
-            <input name="Password" type="password"  data-ng-model="loginVm.Password" required/>
-             <div data-ng-messages="loginForm.Password.$error" class="has-error" data-ng-if="loginForm.Password.$dirty">
-           <p data-ng-message="required">Password is required</p> 
-           
-               </div>
-               <div class="has-error">
-               <p data-ng-show="loginForm.Password.$pristine && loginVm.loginFormsubmitted">Password is required</p>
-               </div>
+            <input name="Password" type="password"  data-ng-model="loginVm.adminDetails.password" required/>
+            <div data-ng-messages="loginForm.Password.$error" class="has-error" data-ng-if="loginForm.Password.$dirty">
+                <p data-ng-message="required">Password is required</p>
+
+            </div>
+            <div class="has-error">
+                <p data-ng-show="loginForm.Password.$pristine && loginVm.loginFormsubmitted">Password is required</p>
+            </div>
         </div>
     </div>
 
 
     <div>
-    
+
         <div class="login" >
-         <button type="submit" formaction="ownerHome.html"  class="button">Login</button>
+            <button type="submit" formaction="ownerHome.html"  class="button">Login</button>
         </div>
         <div class="login">
-         <button type="submit"   class="button" data-ng-click="loginVm.forgotPassword()" formaction="http://www.google.com">Forgot Password</button>
+            <button type="submit"   class="button" data-ng-click="loginVm.forgotPassword()" formaction="http://www.google.com">Forgot Password</button>
         </div>
-       
+        <div class="has-error">
+            <p data-ng-show="!loginVm.isAuthenticatedUser && loginVm.loginFormsubmitted">Either Username or Password do not match</p>
+        </div>
+
     </div>
-    </form>
+</form>
            
     </span>
-            </section>
+    </section>
 
-        </div>
+</div>
 
-        <!-- end of Login Content -->
+<!-- end of Login Content -->

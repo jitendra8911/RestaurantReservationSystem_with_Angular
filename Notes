@@ -1,3 +1,14 @@
 Update as on 8/10/2015
 
 Worked on database scripts which include tables and store procedures. The next task is to provide link between UI and database using RESTful API and java programming
+
+
+Update as on 8/12/2015
+1) Created java code for carryingout RESTFul operations
+2) Established link between UI and database by using RESTful API using POST and GET methods
+3) Completed user authentication functionality
+4) Created session at server to maintain session between login and logout
+5) Created services login and logout usin angular promises, separating out services from controllers
+6) Did some modifications in validations of date and time using angular directives input[time] and input[date]
+7) Created session storage to hold the values of findATable form in home page.
+8) Yet to perform remaining functionalities of the project like table booking, updating existing confirmation, etc
