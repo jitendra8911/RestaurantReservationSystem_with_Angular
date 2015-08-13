@@ -5,34 +5,34 @@
                 <form name="profileForm" data-ng-submit="profileVm.validate(profileForm.$valid)"  novalidate>
                 <div class="divProfile">
                     <span class="spanProfile">
-                        <label for="ProfileFirstName">FirstName</label>
+                        <label for="ProfileName">Restaurant Name</label>
                     </span>
-                    <span class="spanProfile" id="ProfileFirstName">
-                        <input name="firstName" type="text" data-ng-model="profileVm.firstName" required/>
+                    <span class="spanProfile" id="ProfileName">
+                        <input name="restaurantName" type="text" data-ng-model="profileVm.restaurantName" required/>
                     </span>
-                     <div data-ng-messages="profileForm.firstName.$error" class="has-error" data-ng-if="profileForm.firstName.$dirty">
-           <p data-ng-message="required">FirstName is required</p> 
+                     <div data-ng-messages="profileForm.restaurantName.$error" class="has-error" data-ng-if="profileForm.restaurantName.$dirty">
+           <p data-ng-message="required">Restaurant Name is required</p> 
            
                </div>
                <div class="has-error">
-               <p data-ng-show="profileForm.firstName.$pristine && profileVm.profileFormsubmitted">FirstName is required</p>
+               <p data-ng-show="profileForm.restaurantName.$pristine && profileVm.profileFormsubmitted">Restaurant Name is required</p>
                </div>
                 </div>
 
                 <div class="divProfile">
                     <span class="spanProfile">
-                        <label for="ProfileLastName">LastName</label>
+                        <label for="ProfileAddress">Address</label>
                     </span>
-                    <span class="spanProfile" id="ProfileLastName">
-                        <input name="lastName" type="text" data-ng-model="profileVm.lastName" required/>
+                    <span class="spanProfile" id="ProfileAddress">
+                        <input name="restaurantAddress" type="text" data-ng-model="profileVm.restaurantAddress" required/>
                     </span>
                     
-                     <div data-ng-messages="profileForm.lastName.$error" class="has-error" data-ng-if="profileForm.lastName.$dirty">
-           <p data-ng-message="required">LastName is required</p> 
+                     <div data-ng-messages="profileForm.restaurantAddress.$error" class="has-error" data-ng-if="profileForm.restaurantAddress.$dirty">
+           <p data-ng-message="required">Address is required</p> 
            
                </div>
                <div class="has-error">
-               <p data-ng-show="profileForm.lastName.$pristine && profileVm.profileFormsubmitted">LastName is required</p>
+               <p data-ng-show="profileForm.restaurantAddress.$pristine && profileVm.profileFormsubmitted">Address is required</p>
                </div>
                  </div>
 

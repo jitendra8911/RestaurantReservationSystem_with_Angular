@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DBUtil {
@@ -68,6 +67,43 @@ public class DBUtil {
 					} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void closeConnection(Connection con)
+	{
+		if (con != null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void closeResultSet(ResultSet rs)
+	{
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void closeStatement(Statement st)
+	{
+		if(st !=null)
+		{
+			try {
+				st.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

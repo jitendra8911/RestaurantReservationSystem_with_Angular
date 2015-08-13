@@ -1,12 +1,12 @@
-<!-- start of Edit Reservation Content -->
-<div id="editReservation">
+ <!-- start of Edit Reservation Content -->
+        <div id="editReservation">
 
-    <section class="sectionReservation">
-        <h1>Edit</h1>
-        <form name="editReservationForm" data-ng-submit="editReserveVm.validate(editReservationForm.$valid)"  novalidate>
-            <div class="divEdit">
+            <section class="sectionReservation">
+                <h1>Edit</h1>
+                <form name="editReservationForm" data-ng-submit="editReserveVm.validate(editReservationForm.$valid)"  novalidate>
+                <div class="divEdit">
                     <span class="editReservationInputFields">
-                        <select>
+                        <select data-ng-model="editReserveVm.partySize">
                             <option value="1">1 Person</option>
                             <option value="2">2 People</option>
                             <option value="3">3 People</option>
@@ -18,50 +18,49 @@
                         </select>
                     </span>
                     <span class="editReservationInputFields">
-                        <input name="inputDate" type="date" data-ng-model="editReserveVm.inputDate " placeholder="mm/dd/yyyy"  required min="{{editReserveVm.minDate | date:'yyyy-MM-dd'}}"/>
+                        <input name="inputDate" type="date" data-ng-model="editReserveVm.inputDate" placeholder="yyyy-MM-dd"  required min="{{editReserveVm.minDate | date:'yyyy-MM-dd'}}"/>
                         <div data-ng-messages="editReservationForm.inputDate.$error" class="has-error" data-ng-if="editReservationForm.inputDate.$dirty">
-                            <p data-ng-message="required">Date field is required</p>
-                            <p data-ng-show="editReservationForm.inputDate.$error.date">Not a valid date!</p>
-                            <p data-ng-show="editReservationForm.inputDate.$error.min">Minimum date should be today!</p>
-                        </div>
-                    </span>
-                    <span class="editReservationInputFields">
-                        <input name="inputTime" type="time" data-ng-model="editReserveVm.inputTime"  placeholder="HH:mm" required min="{{editReserveVm.minDate | date:'HH:mm'}}"/>
-                          <div data-ng-messages="editReservationForm.inputTime.$error" class="has-error" data-ng-if="editReservationForm.inputTime.$dirty">
-                              <p data-ng-message="required">Time field is required</p>
-                              <p data-ng-show="editReservationForm.inputTime.$error.time">Not a valid time!</p>
-                              <p data-ng-show="editReservationForm.inputTime.$error.min">Minimum time should be current time!</p>
-                          </div>
-                    </span>
-                    <span class="editReservationInputFields">
-                        <input name="telephone" type="tel" placeholder="999-999-9999" data-ng-model="editReserveVm.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'/>
-                        <div data-ng-messages="editReservationForm.telephone.$error" class="has-error" data-ng-if="editReservationForm.telephone.$dirty">
-                            <span data-ng-message="required">Telephone number is required</span>
-                            <span data-ng-message="pattern">Telephone number should be in 999-999-9999 format</span>
-                        </div>
-               <div class="has-error">
-                   <span data-ng-show="editReservationForm.telephone.$pristine && editReserveVm.editReservationFormSubmitted">Telephone number is required</span>
+           <p data-ng-message="required">Date field is required</p> 
+             <p data-ng-show="editReservationForm.inputDate.$error.date">Not a valid date!</p>
+              <p data-ng-show="editReservationForm.inputDate.$error.min">Minimum date should be today!</p>
                </div>
                     </span>
-            </div>
-            <div>
+                    <span class="editReservationInputFields">
+                        <input name="inputTime" type="time" data-ng-model="editReserveVm.inputTime"  placeholder="HH:mm" required/>
+                          <div data-ng-messages="editReservationForm.inputTime.$error" class="has-error" data-ng-if="editReservationForm.inputTime.$dirty">
+           <p data-ng-message="required">Time field is required</p> 
+           <p data-ng-show="editReservationForm.inputTime.$error.time">Not a valid time!</p>
+                </div>
+                    </span>
+                    <span class="editReservationInputFields">
+                        <input name="telephone" type="tel" placeholder="999-999-9999" data-ng-model="editReserveVm.bookingDetails.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'/>
+                        <div data-ng-messages="editReservationForm.telephone.$error" class="has-error" data-ng-if="editReservationForm.telephone.$dirty">
+           <span data-ng-message="required">Telephone number is required</span> 
+           <span data-ng-message="pattern">Telephone number should be in 999-999-9999 format</span>
+               </div>
+               <div class="has-error">
+               <span data-ng-show="editReservationForm.telephone.$pristine && editReserveVm.editReservationFormSubmitted">Telephone number is required</span>
+               </div>
+                    </span>
+                </div>
+                <div>
                 <button type="submit"  class="button" >Update Reservation</button>
-            </div>
-        </form>
-    </section>
+                     </div>
+                 </form>
+            </section>
 
-    <section class="sectionReservation">
-        <h1>Cancel Reservation</h1>
+            <section class="sectionReservation">
+                <h1>Cancel Reservation</h1>
 
-        <p>If you want to cancel the reservation, please click cancel below. Once canceled, the reservation
-            cannot be undone.</p>
+                <p>If you want to cancel the reservation, please click cancel below. Once canceled, the reservation
+                    cannot be undone.</p>
 
-        <div>
-            <input type="button" value="Cancel Reservation" class="button"/>
+                <div>
+                <button class="button" data-ng-click="editReserveVm.cancelReservation()">Cancel Reservation</button>
+                     </div>
+                
+               
+            </section>
+
         </div>
-
-
-    </section>
-
-</div>
-<!-- end of Edit Reservation Content -->
+        <!-- end of Edit Reservation Content -->

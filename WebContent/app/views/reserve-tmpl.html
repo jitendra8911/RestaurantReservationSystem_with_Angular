@@ -8,7 +8,7 @@
 			<div class="divReserve">
 				<span class="createReservationFields"> <label for="FirstName">FirstName</label>
 				</span> <span class="createReservationFields" id="FirstName"> <input
-					name="FirstName" type="text" data-ng-model="reserveVm.FirstName" required/>
+					name="FirstName" type="text" data-ng-model="reserveVm.bookingDetails.firstName" required/>
 				</span>
  <div data-ng-messages="reservationForm.FirstName.$error" class="has-error" data-ng-if="reservationForm.FirstName.$dirty">
            <p data-ng-message="required">FirstName is required</p> 
@@ -22,7 +22,7 @@
 			<div class="divReserve">
 				<span class="createReservationFields"> <label for="LastName">LastName</label>
 				</span> <span class="createReservationFields" id="LastName"> <input
-					name="LastName" type="text" data-ng-model="reserveVm.LastName" required/>
+					name="LastName" type="text" data-ng-model="reserveVm.bookingDetails.lastName" required/>
 				</span>
 				<div data-ng-messages="reservationForm.LastName.$error" class="has-error" data-ng-if="reservationForm.LastName.$dirty">
            <p data-ng-message="required">LastName is required</p> 
@@ -38,7 +38,7 @@
 			<div class="divReserve">
 				<span class="createReservationFields"> <label for="Telephone">Telephone</label>
 				</span> <span class="createReservationFields" id="Telephone"> <input
-					type="tel" name="Telephone" placeholder="999-999-9999" data-ng-model="reserveVm.Telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'/>
+					type="tel" name="Telephone" placeholder="999-999-9999" data-ng-model="reserveVm.bookingDetails.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'/>
 				</span>
  <div data-ng-messages="reservationForm.Telephone.$error" class="has-error" data-ng-if="reservationForm.Telephone.$dirty">
            <p data-ng-message="required">Telephone number is required</p> 

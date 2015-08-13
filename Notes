@@ -12,3 +12,11 @@ Update as on 8/12/2015
 6) Did some modifications in validations of date and time using angular directives input[time] and input[date]
 7) Created session storage to hold the values of findATable form in home page.
 8) Yet to perform remaining functionalities of the project like table booking, updating existing confirmation, etc
+
+
+Update as on 8/13/2015 1:25 AM
+1) The functionalities that I was able to achieve today are:  Customer table reservation, updating existing reservation and admin view seating area
+2) Yet to implement modal popups for user confirmation, displaying status messages after performing the above mentioned functionalities.
+3) I mainly concentrated on logic part, but yet to complete the corresponding UI part for these functionalities.
+4) Tomorrow I would be working on remaining left over functionalities of admin and planning to do the finishing touch to UI part at the end.
+5) I modified  reservationList table schema and few stored procedures

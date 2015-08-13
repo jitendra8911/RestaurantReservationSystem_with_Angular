@@ -14,42 +14,15 @@
                         <th>Conf#</th>
                     </tr>
                     </thead>
-                    <tr>
-                        <td>1</td>
-                        <td>3</td>
-                        <td>Occupied</td>
-                        <td>12:00PM</td>
-                        <td><a href="">A123</a> </td>
+                    <tr data-ng-repeat="t in viewSeatingAreaVm.tables">
+                        <td>{{t.tableId}}</td>
+                        <td>{{t.capacity}}</td>
+                        <td>{{t.status}}</td>
+                        <td>{{t.partyTime}}</td>
+                        <td><a href="#/viewSeatingArea/{{t.confirmationCode}}">{{t.confirmationCode}}</a> </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>4</td>
-                        <td>Available</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>6</td>
-                        <td>Occupied</td>
-                        <td>1:30PM</td>
-                        <td><a href="">B543</a> </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>8</td>
-                        <td>Occupied</td>
-                        <td>2:30PM</td>
-                        <td><a href="">B243</a> </td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>2</td>
-                        <td>Available</td>
-                        <td>-</td>
-                        <td>-</td>
-                    </tr>
-                </table>
+                   
+                   </table>
 
             </section>
 
