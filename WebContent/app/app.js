@@ -1,6 +1,6 @@
 (function() {
 
-	angular.module('restaurantReservationSystem', [ 'ngRoute','ngMessages' ]).config(
+	angular.module('restaurantReservationSystem', [ 'ngRoute','ngMessages','ngAnimate', 'ui.bootstrap' ]).config(
 			moduleConfig);
 
 	moduleConfig.$inject = [ '$routeProvider' ];
@@ -88,6 +88,25 @@
 			controllerAs : 'logoutVm'
 
 		})
+		
+		   .when('/viewSeatingArea/:confirmationCode', {
+          templateUrl: 'app/views/reservationDetails-tmpl.html',
+          controller: 'BookingDetailsCtrl',
+          controllerAs: 'bookingDetailsVm'
+        })
+		
+        
+          .when('/viewReservation/:confCode/:tableId', {
+          templateUrl: 'app/views/reservationDetails-tmpl.html',
+          controller: 'BookingDetailsCtrl',
+          controllerAs: 'bookingDetailsVm'
+        })
+		
+         .when('/viewReservation/:confCode/', {
+          templateUrl: 'app/views/reservationDetails-tmpl.html',
+          controller: 'BookingDetailsCtrl',
+          controllerAs: 'bookingDetailsVm'
+        })
 		
 		
 		  .otherwise({

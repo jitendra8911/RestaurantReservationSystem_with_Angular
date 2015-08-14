@@ -1,0 +1,65 @@
+<div class="container">
+  <h3>Reservation Details</h3>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Confirmation Code</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.confirmationCode}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Party Date</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.partyDate}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Party Time</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.partyTime}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Party Size</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.partySize}}</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.firstName}}</p>
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.lastName}}</p>
+      </div>
+    </div>
+     <div class="form-group">
+      <label class="col-sm-2 control-label">Telephone</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.telephone}}</p>
+      </div>
+    </div>
+       <div class="form-group">
+      <label class="col-sm-2 control-label">Booking Status</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.status}}</p>
+      </div>
+    </div>
+          <div class="form-group">
+      <label class="col-sm-2 control-label">Table #</label>
+      <div class="col-sm-10">
+        <p class="form-control-static">{{bookingDetailsVm.bookingDetails.tableId}}</p>
+      </div>
+    </div>
+      <div class="form-group" data-ng-show="bookingDetailsVm.showChangeOption">
+      <button class="button" data-ng-click="bookingDetailsVm.changeAssignTables()">Change Table</button>
+      </div>
+         <div class="form-group" data-ng-show="bookingDetailsVm.showAssignOption">
+      <button class="button" data-ng-click="bookingDetailsVm.changeAssignTables()">Assign Table</button>
+      </div>
+  </form>
+</div>

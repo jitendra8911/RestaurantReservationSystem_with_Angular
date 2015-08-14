@@ -1,4 +1,4 @@
-CREATE  PROCEDURE `sp_assign_table`(
+CREATE  PROCEDURE `change_assign_table`(
 in confCode int,in id int
 )
 BEGIN

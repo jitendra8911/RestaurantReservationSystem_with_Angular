@@ -1,4 +1,4 @@
-CREATE  PROCEDURE `view_list_of_Reservations`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `view_list_of_Reservations`()
 BEGIN
-select confirmationCode,firstName,lastName,tableId,partySize  from reservationList;
+select *  from reservationList;
 END

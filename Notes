@@ -20,3 +20,11 @@ Update as on 8/13/2015 1:25 AM
 3) I mainly concentrated on logic part, but yet to complete the corresponding UI part for these functionalities.
 4) Tomorrow I would be working on remaining left over functionalities of admin and planning to do the finishing touch to UI part at the end.
 5) I modified  reservationList table schema and few stored procedures
+
+
+Update as on 8//14/2015 2:58 AM
+1) Completed view reservations, view seating area, view details of a reservation, change and assign table functionalities
+2) Added modal popup for change and assign table functionality
+3) Modified scripts mostly stored procedures and added few
+4) yet to do update settings, update profile, view contacts, and view past reservation functionalities.
+5) yet to add modal popup for book reservation and edit reservation

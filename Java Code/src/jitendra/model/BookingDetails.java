@@ -10,6 +10,8 @@ public class BookingDetails {
 	private String telephone;
 	private int confirmationCode;
 	private String status;
+	private Integer tableId;
+	
 	public String getPartyDate() {
 		return partyDate;
 	}
@@ -57,6 +59,12 @@ public class BookingDetails {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public Integer getTableId() {
+		return tableId;
+	}
+	public void setTableId(Integer tableId) {
+		this.tableId = tableId;
 	}
 	
 	

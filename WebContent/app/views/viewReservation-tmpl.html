@@ -7,49 +7,27 @@
                 <table class="tblReservations tblGeneral" align="center">
                     <thead>
                     <tr>
-                        <th>Conf#</th>
-                        <th>Name</th>
+                        <th>Confirmation #</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Table #</th>
-                        <th>size</th>
+                        <th>Party Size</th>
+                        <th>Status</th>
+                        <th>Party Date</th>
                         <th>Info</th>
                     </tr>
                     </thead>
-                    <tr>
-                        <td>A123</td>
-                        <td>Jitendra Malakalapalli</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td> <a data-toggle="tab" href="#/changeAssignTable" class="button" >View</a></td>
+                    <tr data-ng-repeat="rl in viewReservationVm.reservationsList">
+                        <td>{{rl.confirmationCode}}</td>
+                        <td>{{rl.firstName}}</td>
+                        <td>{{rl.lastName}}</td>
+                        <td>{{rl.tableId}}</td>
+                        <td>{{rl.partySize}}</td>
+                        <td>{{rl.status}}</td>
+                        <td>{{rl.partyDate}}</td>
+                        <td> <a  href="#/viewReservation/{{rl.confirmationCode}}/{{rl.tableId}}" class="button">View</a></td>
                     </tr>
-                    <tr>
-                        <td>A152</td>
-                        <td>Jitendra Malakalapalli</td>
-                        <td>6</td>
-                        <td>8</td>
-                        <td> <a data-toggle="tab" href="#/changeAssignTable" class="button" >View</a></td>
-                    </tr>
-                    <tr>
-                        <td>A252</td>
-                        <td>Jitendra Malakalapalli</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td> <a data-toggle="tab" href="#/changeAssignTable" class="button">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>E216</td>
-                        <td>Jitendra Malakalapalli</td>
-                        <td>12</td>
-                        <td>12</td>
-                        <td> <a data-toggle="tab" href="#/changeAssignTable" class="button">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>A153</td>
-                        <td>Jitendra Malakalapalli</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td> <a data-toggle="tab" href="#/changeAssignTable" class="button">View</a></td>
-                    </tr>
-                </table>
+                  </table>
 
             </section>
 
