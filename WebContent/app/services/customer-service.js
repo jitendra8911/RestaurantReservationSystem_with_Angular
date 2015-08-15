@@ -66,6 +66,25 @@
 
 				      return defer.promise;
 				    };
+				    
+			
+				    self.getRestaurantDetails=function()
+				    {
+				    	var defer = $q.defer();
+
+					      $http({
+					          method: 'GET',
+					          url: 'api/customer/getRestaurantDetails',
+					        })
+					        .success(function(data) {
+					          defer.resolve(data);
+					        })
+					        .error(function(err) {
+					          defer.reject(err);
+					        });
+
+					      return defer.promise;
+					    };
 		    
 	  }
 	  

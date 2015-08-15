@@ -28,3 +28,11 @@ Update as on 8//14/2015 2:58 AM
 3) Modified scripts mostly stored procedures and added few
 4) yet to do update settings, update profile, view contacts, and view past reservation functionalities.
 5) yet to add modal popup for book reservation and edit reservation
+
+
+Update as on 8/15/2015 2:14 Am
+1) Implemented View Contacts ,view past reservations, update profile functionalities
+2) Yet to do tasks are:
+  a) modal popup for edit,book reservation, and for update profile and settings
+  b) filters and sorting to columns for tables  in admin functionalities.
+  c) Pagination to tables if possible

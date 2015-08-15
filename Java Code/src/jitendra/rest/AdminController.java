@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -12,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import jitendra.dao.AdminDAO;
 import jitendra.exceptions.AppException;
 import jitendra.model.BookingDetails;
+import jitendra.model.CustomerDetails;
+import jitendra.model.RestaurantProfileAndSettings;
 import jitendra.model.SeatingDetails;
 import jitendra.model.TableDetails;
 
@@ -154,6 +157,81 @@ public class AdminController {
 	}
 	
 	
-
+	
+	
+	@GET
+	@Path("/viewContacts")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AppResponse viewContacts()
+	{
+		AppResponse appRes=new AppResponse();
+		ArrayList<CustomerDetails> contactList=new ArrayList<CustomerDetails>();
+		AdminDAO adminDAO=new AdminDAO();
+		try {
+			contactList=adminDAO.retrieveContacts();
+			appRes.setPayload(contactList);
+			appRes.setMessage("sucessfully retrieved customer contact list");
+		} catch (AppException e) {
+			// TODO Auto-generated catch block
+			appRes.setMessage("error in retrieving customer contact list");
+			appRes.setStatus(AppResponse.ERROR);
+			e.printStackTrace();
+		}
+		
+		return appRes;
+	}
+	
+	
+	
+	@GET
+	@Path("/viewPastReservations/{telephone}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AppResponse viewReservationsList(@PathParam("telephone") String telephone)
+	{
+		AppResponse appRes=new AppResponse();
+		ArrayList<BookingDetails> bookingDetailsList=new ArrayList<BookingDetails>();
+		AdminDAO adminDAO=new AdminDAO();
+		try {
+			bookingDetailsList=adminDAO.viewPastReservations(telephone);
+			appRes.setPayload(bookingDetailsList);
+			appRes.setMessage("sucessfully retrieved past reservations");
+		} catch (AppException e) {
+			// TODO Auto-generated catch block
+			appRes.setMessage("error in retrieving past reservations");
+			appRes.setStatus(AppResponse.ERROR);
+			e.printStackTrace();
+		}
+		
+		return appRes;
+	}
+	
+	
+	@POST
+	@Path("/updateRestaurantProfile")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AppResponse updateRestaurantProfile(RestaurantProfileAndSettings restaurantData)
+	{
+		AppResponse appRes=new AppResponse();
+		AdminDAO adminDAO=new AdminDAO();
+		int count;
+		try {
+			count=adminDAO.updateRestaurantProfile(restaurantData);
+			if(count>0)
+			appRes.setMessage("successfully update restaurant profile");
+			else
+			{
+				appRes.setMessage("couldn't update restaurant profile");
+			}
+		} catch (AppException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			appRes.setMessage("error in updating restaurant profile");
+			appRes.setStatus(AppResponse.ERROR);
+		}
+		return appRes;
+	}
 
 }

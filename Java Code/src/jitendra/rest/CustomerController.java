@@ -10,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import jitendra.dao.CustomerDAO;
 import jitendra.exceptions.AppException;
 import jitendra.model.BookingDetails;
+import jitendra.model.RestaurantProfileAndSettings;
 
 @Path("/customer")
 public class CustomerController {
@@ -94,5 +95,28 @@ public class CustomerController {
 		}
 		return appRes;
 	}
+	
+	
+	@GET
+	@Path("/getRestaurantDetails")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AppResponse getRestaurantDetails()
+	{
+		AppResponse appRes=new AppResponse();
+		RestaurantProfileAndSettings restaurantData;
+		CustomerDAO customerDAO=new CustomerDAO();
+		try {
+			restaurantData=customerDAO.retrieveRestaurantProfileAndSettings();
+			appRes.setPayload(restaurantData);
+		} catch (AppException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			appRes.setMessage("error in retrieving Restaurant profile and settings");
+			appRes.setStatus(AppResponse.ERROR);
+		}
+		return appRes;
+	}
+	
 
 }

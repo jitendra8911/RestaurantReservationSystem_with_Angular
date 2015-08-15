@@ -3,8 +3,8 @@
 {
      angular.module('restaurantReservationSystem')
      .controller('HomeCtrl',HomeCtrlFn)
-     HomeCtrlFn.$inject=['$location','$filter']
-     function HomeCtrlFn($location,$filter)
+     HomeCtrlFn.$inject=['$location','$filter','customerService']
+     function HomeCtrlFn($location,$filter,customerService)
      {
     	    var homeVm=this;
     	    homeVm.partySize="2";
@@ -12,6 +12,18 @@
     	   // console.log(homeVm.minDate);
     	    homeVm.findATableFormsubmitted = false;
     	    homeVm.reserveTableFormsubmitted=false;
+    	    
+    	    /* initialize Restaurant Details */
+    	    customerService
+  	      .getRestaurantDetails()
+  	      .then(function(data) {
+  	    	homeVm.restaurantDetails=data.payload;
+  	        }, function(err) {
+  	        console.log(err);
+  	      });
+    	    
+    	    
+    	    
     	    homeVm.FindATableForm = function(isValid) {
     	    	var partyDate=$filter('date')(homeVm.inputDate, "yyyy-MM-dd"); 
     	    	var partyTime=$filter('date')(homeVm.inputTime, "HH:mm:ss"); 

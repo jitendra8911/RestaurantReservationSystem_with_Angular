@@ -107,6 +107,13 @@
           controller: 'BookingDetailsCtrl',
           controllerAs: 'bookingDetailsVm'
         })
+        
+        	.when('/viewPastReservations/:telephone', {
+			templateUrl : 'app/views/ViewPastReservations-tmpl.html',
+			controller : 'ViewPastReservationsCtrl',
+			controllerAs : 'viewPastReservationsVm'
+
+		})
 		
 		
 		  .otherwise({

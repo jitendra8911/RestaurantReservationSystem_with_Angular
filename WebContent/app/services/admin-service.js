@@ -84,6 +84,7 @@
 			    
 
 			    self.changeAssignTable = function(confirmationCode,tableId) {
+			    	
 				      var defer = $q.defer();
 
 				      $http({
@@ -93,12 +94,69 @@
 				        .success(function(data) {
 				          defer.resolve(data);
 				        })
-				        .error(function(err) {
+				        .error(function(err) {  	
 				          defer.reject(err);
 				        });
 
 				      return defer.promise;
 				    };
+				    
+				    
+				    self.viewContacts = function() {
+					      var defer = $q.defer();
+
+					      $http({
+					          method: 'GET',
+					          url: 'api/admin/viewContacts'
+					        })
+					        .success(function(data) {
+					          defer.resolve(data);
+					        })
+					        .error(function(err) {
+					          defer.reject(err);
+					        });
+
+					      return defer.promise;
+					    };
+					    
+					    
+					    self.viewPastReservations = function(telephone) {
+					    	
+						      var defer = $q.defer();
+
+						      $http({
+						          method: 'GET',
+						          url: 'api/admin/viewPastReservations/' + telephone
+						        })
+						        .success(function(data) {
+						          defer.resolve(data);
+						        })
+						        .error(function(err) {
+						          defer.reject(err);
+						        });
+
+						      return defer.promise;
+						    };
+						    
+						    
+						    self.updateRestaurantProfile=function(restaurantData)
+						    {
+						    	var defer = $q.defer();
+
+							      $http({
+							          method: 'POST',
+							          url: 'api/admin/updateRestaurantProfile',
+							         data:restaurantData
+							        })
+							        .success(function(data) {
+							          defer.resolve(data);
+							        })
+							        .error(function(err) {
+							          defer.reject(err);
+							        });
+
+							      return defer.promise;
+							    };				    
 
 	}
 

@@ -20,6 +20,7 @@
 		
 
 		 modalChangeAssignVm.changeAssign = function () {
+			 console.log('tableId assigning is'+modalChangeAssignVm.tableId);
 			 adminService.changeAssignTable(modalChangeAssignVm.bookingDetails.confirmationCode,modalChangeAssignVm.tableId).then(function(data) {
 //				 $rootScope.tableId = data.payload.tableId;
 //				 console.log(" data payload is");

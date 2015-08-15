@@ -1,10 +1,9 @@
  <!-- Home page content -->
         <div id="home">
             <section>
-                <introduction class="description"><h1>Welcome to Jitendra's restaurant</h1> <br>
-                    Open Hours : 11:00 AM to 3:00 PM and 5:00 PM to 11:00PM <br>
-                    Closing Hours : 2:00 PM to 5:00 PM <br>
-                    Closing Days : We are closed on Wednesday's
+                <introduction class="description"><h1>Welcome to {{homeVm.restaurantDetails.restaurantName}}</h1> <br>
+                    Open Hours : {{homeVm.restaurantDetails.openTime}} to {{homeVm.restaurantDetails.closingTime}}<br>
+                    Closing Days : We are closed on {{homeVm.restaurantDetails.closingDays}}
                 </introduction>
             </section>
             <section class="container">

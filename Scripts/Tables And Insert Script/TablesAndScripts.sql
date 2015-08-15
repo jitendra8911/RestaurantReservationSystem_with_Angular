@@ -34,7 +34,7 @@ insert into restaurant_tables values(8,6);
 insert into restaurant_tables values(9,10);
 insert into restaurant_tables values(10,12);
 
-
+select * from restaurant_tables;
 /* 
 
 
@@ -52,20 +52,20 @@ insert into reservationList values(null,10,'2015-08-09','15:00',10,'confirmed','
 insert into reservationList values(null,3,'2015-08-09','16:00',8,'confirmed','Charan','Chalichama','918-287-8759');
 
 insert into reservationList(partyDate,partyTime,partySize,firstName,lastName,phone)
-values('2015-08-13','12:00',5,'Jitendra','Malakalapalli','918-287-8750');
-insert into reservationList values(null,null,'2015-08-13','18:00',2,'confirmed','Jitendra','Malakalapalli','918-287-8750');
-insert into reservationList values(null,3,'2015-08-13','14:00',6,'confirmed','Gopi','Malakalapalli','918-260-5545');
-insert into reservationList values(null,6,'2015-08-13','15:00',5,'waiting','Raghav','Sriram','918-212-2323');
-insert into reservationList values(null,null,'2015-08-13','13:00',5,'waiting','Pavan','Ande','918-287-8752');
-insert into reservationList values(null,10,'2015-08-13','21:00',10,'confirmed','Rakesh','Ega','918-287-8756');
-insert into reservationList values(null,10,'2015-08-13','20:00',10,'confirmed','Jitendra','Malakalapalli','918-287-8750');
-insert into reservationList values(null,3,'2015-08-13','16:00',8,'confirmed','Charan','Chalichama','918-287-8759');
-insert into reservationList values(null,null,'2015-08-13','15:20',6,'confirmed','Sreejan','Alapati','918-287-8759');
-insert into reservationList values(null,null,'2015-08-13','17:20',6,'confirmed','Johnson','Mithcell','918-287-8780');
-insert into reservationList values(null,9,'2015-08-13','12:00',7,'confirmed','Michael','Clarke','918-287-8781');
-insert into reservationList values(null,1,'2015-08-13','21:30',5,'confirmed','Steven','Waugh','918-287-7219');
-insert into reservationList values(null,1,'2015-08-13','17:00',5,'confirmed','Steven','Waugh','918-287-7261');
-insert into reservationList values(null,8,'2015-08-13','17:05',5,'confirmed','Cris','Gayle','918-287-7239');
+values('2015-08-14','12:00',5,'Jitendra','Malakalapalli','918-287-8750');
+insert into reservationList values(null,null,'2015-08-14','18:00',2,'waiting','Jitendra','Malakalapalli','918-287-8750');
+insert into reservationList values(null,null,'2015-08-14','14:00',6,'confirmed','Gopi','Malakalapalli','918-260-5545');
+insert into reservationList values(null,6,'2015-08-14','15:00',5,'confirmed','Raghav','Sriram','918-212-2323');
+insert into reservationList values(null,null,'2015-08-14','13:00',5,'waiting','Pavan','Ande','918-287-8752');
+insert into reservationList values(null,10,'2015-08-14','21:00',10,'confirmed','Rakesh','Ega','918-287-8756');
+insert into reservationList values(null,10,'2015-08-14','20:00',10,'confirmed','Jitendra','Malakalapalli','918-287-8750');
+insert into reservationList values(null,3,'2015-08-14','16:00',8,'confirmed','Charan','Chalichama','918-287-8759');
+insert into reservationList values(null,null,'2015-08-14','15:20',6,'waiting','Sreejan','Alapati','918-287-8759');
+insert into reservationList values(null,null,'2015-08-14','17:20',6,'waiting','Johnson','Mithcell','918-287-8780');
+insert into reservationList values(null,9,'2015-08-14','12:00',7,'confirmed','Michael','Clarke','918-287-8781');
+insert into reservationList values(null,1,'2015-08-14','21:30',5,'confirmed','Steven','Waugh','918-287-7219');
+insert into reservationList values(null,1,'2015-08-14','17:00',5,'confirmed','Steven','Waugh','918-287-7261');
+insert into reservationList values(null,8,'2015-08-14','17:05',5,'confirmed','Cris','Gayle','918-287-7239');
 
 delete from reservationList;
 drop table reservationLIst;
@@ -79,8 +79,4 @@ insert into restaurantprofile values('Jitendra\'s restaurant','918-287-8750','jm
 
 insert into restaurantwebsettings values(false,'10:00','21:00','Monday,Tuesday,Wednesday,Thursday,Friday,Saturday','Sunday');
 
-CALL `restaurant_db`.`Insert_Into_Reservation_List`('2015-08-12','12:00',5,'Jitendra','Malakalapalli','918-287-8750');
-select @confCode,@bookingStatus;
-
-CALL `restaurant_db`.`view_seating_area`();
-
+select * from restaurantwebsettings;

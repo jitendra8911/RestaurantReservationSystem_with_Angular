@@ -7,6 +7,8 @@ import java.sql.SQLException;
 
 import jitendra.exceptions.AppException;
 import jitendra.model.BookingDetails;
+import jitendra.model.RestaurantProfileAndSettings;
+import jitendra.model.SeatingDetails;
 import jitendra.utils.DBUtil;
 
 public class CustomerDAO {
@@ -101,5 +103,59 @@ public class CustomerDAO {
 		return isRemoved;
 		
 	}
+	
+	public RestaurantProfileAndSettings retrieveRestaurantProfileAndSettings() throws AppException
+	{
+		RestaurantProfileAndSettings restaurantData=new RestaurantProfileAndSettings();
+		
+		Connection con=DBUtil.getConncetionToDB();
+		CallableStatement cs=null;
+		boolean results;
+		try {
+			
+			cs=con.prepareCall("{call retrieve_restaurant_profile_and_settings()}");
+			results=cs.execute();
+			if(results)
+			{
+				ResultSet rs=cs.getResultSet();
+				while(rs.next())
+				{
+					restaurantData.setRestaurantName(rs.getString("restaurantName"));
+					restaurantData.setTelephone(rs.getString("phone"));
+					restaurantData.setEmail(rs.getString("email"));
+					restaurantData.setAddress(rs.getString("address"));
+				}
+				rs.close();
+			}
+			results=cs.getMoreResults();
+			if(results)
+			{
+				ResultSet rs=cs.getResultSet();
+				while(rs.next())
+				{
+					restaurantData.setAutoAssign(rs.getBoolean("autoAssign"));
+					restaurantData.setOpenDays(rs.getString("openDays"));
+					restaurantData.setOpenTime(rs.getString("openTime"));
+					restaurantData.setClosingDays(rs.getString("closingDays"));
+					restaurantData.setClosingTime(rs.getString("closingTime"));
+				}
+				rs.close();
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("error in retrieving Restaurant Profile And Settings", e.getCause());
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeStatement(cs);
+		}
+		
+		
+		
+		return restaurantData;
+	}
+	
+	
+	
 
 }

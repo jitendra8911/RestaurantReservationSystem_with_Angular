@@ -10,6 +10,8 @@ import java.util.List;
 import jitendra.exceptions.AppException;
 import jitendra.model.AdminDetails;
 import jitendra.model.BookingDetails;
+import jitendra.model.CustomerDetails;
+import jitendra.model.RestaurantProfileAndSettings;
 import jitendra.model.SeatingDetails;
 import jitendra.model.TableDetails;
 import jitendra.utils.DBUtil;
@@ -252,6 +254,108 @@ finally
 }
 		
 		return bookingDetails;
+	}
+	
+	
+	
+	
+	public ArrayList<CustomerDetails> retrieveContacts() throws AppException
+	{
+		ArrayList<CustomerDetails> customerDetailsLIst=new ArrayList<CustomerDetails>();
+		Connection con=DBUtil.getConncetionToDB();
+		CallableStatement cs=null;
+		ResultSet rs=null;
+		try {
+			
+			cs=con.prepareCall("{call view_contact_list()}");
+			rs=cs.executeQuery();
+			while(rs.next())
+			{
+				CustomerDetails customerDetails=new CustomerDetails();
+				customerDetails.setFirstName(rs.getString("firstName"));
+				customerDetails.setLastName(rs.getString("lastName"));
+				customerDetails.setTelephone(rs.getString("phone"));	
+				customerDetailsLIst.add(customerDetails);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw  new AppException("error in retrieving customer contacts",e.getCause());
+}
+finally
+{
+	DBUtil.closeConnection(con);
+	DBUtil.closeStatement(cs);
+	DBUtil.closeResultSet(rs);
+}
+		
+		return customerDetailsLIst;
+	}
+	
+	
+	public ArrayList<BookingDetails> viewPastReservations(String telephone) throws AppException
+	{
+		ArrayList<BookingDetails> bookingDetailsList=new ArrayList<BookingDetails>();
+		Connection con=DBUtil.getConncetionToDB();
+		CallableStatement cs=null;
+		ResultSet rs=null;
+		try {
+			
+			cs=con.prepareCall("{call view_past_Reservations(?)}");
+			cs.setString(1,telephone);
+			rs=cs.executeQuery();
+				while(rs.next())
+				{
+					BookingDetails bookingDetails=new BookingDetails();
+					bookingDetails.setConfirmationCode(rs.getInt("confirmationCode"));
+					bookingDetails.setPartySize(rs.getInt("partySize"));
+					bookingDetails.setFirstName(rs.getString("firstName"));
+					bookingDetails.setLastName(rs.getString("lastName"));
+					bookingDetails.setPartyDate(rs.getString("partyDate"));
+					bookingDetails.setPartyTime(rs.getString("partyTime"));
+					bookingDetails.setTelephone(rs.getString("phone"));
+					bookingDetails.setStatus(rs.getString("booking_status"));
+					if(rs.getInt("tableId")!=0)
+					bookingDetails.setTableId(rs.getInt("tableId"));
+					bookingDetailsList.add(bookingDetails);
+				}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("error in retrieving past reservations", e.getCause());
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeStatement(cs);
+			DBUtil.closeResultSet(rs);
+		}
+		
+		return bookingDetailsList;
+	}
+	
+	
+	
+	public int updateRestaurantProfile(RestaurantProfileAndSettings restaurantData) throws AppException {
+
+		Connection con = DBUtil.getConncetionToDB();
+		CallableStatement cs = null;
+		int count;
+		try {
+
+			cs = con.prepareCall("{call update_restaurant_profile(?,?,?,?,?)}");
+			cs.setString(1, restaurantData.getRestaurantName());
+			cs.setString(2, restaurantData.getTelephone());
+			cs.setString(3, restaurantData.getEmail());
+			cs.setString(4, restaurantData.getAddress());
+			cs.registerOutParameter(5, java.sql.Types.INTEGER);
+			cs.executeQuery();
+			count=cs.getInt(5);
+			} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("error in updating Restaurant Profile", e.getCause());
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeStatement(cs);
+		}
+		return count;
 	}
 
 }

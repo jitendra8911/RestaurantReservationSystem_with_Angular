@@ -8,7 +8,7 @@
                         <label for="ProfileName">Restaurant Name</label>
                     </span>
                     <span class="spanProfile" id="ProfileName">
-                        <input name="restaurantName" type="text" data-ng-model="profileVm.restaurantName" required/>
+                        <input name="restaurantName" type="text" data-ng-model="profileVm.restaurantData.restaurantName" required/>
                     </span>
                      <div data-ng-messages="profileForm.restaurantName.$error" class="has-error" data-ng-if="profileForm.restaurantName.$dirty">
            <p data-ng-message="required">Restaurant Name is required</p> 
@@ -24,7 +24,7 @@
                         <label for="ProfileAddress">Address</label>
                     </span>
                     <span class="spanProfile" id="ProfileAddress">
-                        <input name="restaurantAddress" type="text" data-ng-model="profileVm.restaurantAddress" required/>
+                        <input name="restaurantAddress" type="text" data-ng-model="profileVm.restaurantData.address" required/>
                     </span>
                     
                      <div data-ng-messages="profileForm.restaurantAddress.$error" class="has-error" data-ng-if="profileForm.restaurantAddress.$dirty">
@@ -41,7 +41,7 @@
                         <label for="ProfileTelephone">Telephone</label>
                     </span>
                     <span class="spanProfile" id="ProfileTelephone">
-                        <input type="tel" name="telephone" placeholder="999-999-9999" data-ng-model="profileVm.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/' >
+                        <input type="tel" name="telephone" placeholder="999-999-9999" data-ng-model="profileVm.restaurantData.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/' >
                     </span>
                      <div data-ng-messages="profileForm.telephone.$error" class="has-error" data-ng-if="profileForm.telephone.$dirty">
            <p data-ng-message="required">Telephone number is required</p> 
@@ -57,7 +57,7 @@
                         <label for="ProfileEmail">Email</label>
                     </span>
                     <span class="spanProfile" id="ProfileEmail">
-                        <input type="email" name="email" placeholder="example@domain.com" data-ng-model="profileVm.email" required/>
+                        <input type="email" name="email" placeholder="example@domain.com" data-ng-model="profileVm.restaurantData.email" required/>
                     </span>
                     <div data-ng-messages="profileForm.email.$error" class="has-error" data-ng-if="profileForm.email.$dirty">
            <p data-ng-message="required">Email is required</p> 
