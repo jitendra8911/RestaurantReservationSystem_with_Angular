@@ -3,21 +3,21 @@
 
             <section class="sectionViewReservation">
                 <h1>Reservations</h1>
-
+<input type="text" class="form-control" data-ng-model="viewReservationVm.searchText" placeholder="Search For Reservations Here...">
                 <table class="tblReservations tblGeneral" align="center">
                     <thead>
-                    <tr>
-                        <th>Confirmation #</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Table #</th>
-                        <th>Party Size</th>
-                        <th>Status</th>
-                        <th>Party Date</th>
+                    <tr data-ng-init="viewReservationVm.sorter='confirmationCode'; viewReservationVm.reverse = false;">
+                        <th data-ng-click="viewReservationVm.sorter= 'confirmationCode'; viewReservationVm.reverse = !viewReservationVm.reverse;">Confirmation #</th>
+                        <th data-ng-click="viewReservationVm.sorter= 'firstName'; viewReservationVm.reverse = !viewReservationVm.reverse;">First Name</th>
+                        <th data-ng-click="viewReservationVm.sorter= 'lastName'; viewReservationVm.reverse = !viewReservationVm.reverse;">Last Name</th>
+                        <th data-ng-click="viewReservationVm.sorter= 'tableId'; viewReservationVm.reverse = !viewReservationVm.reverse;">Table #</th>
+                        <th data-ng-click="viewReservationVm.sorter= 'partySize'; viewReservationVm.reverse = !viewReservationVm.reverse;">Party Size</th>
+                        <th data-ng-click="viewReservationVm.sorter= 'status'; viewReservationVm.reverse = !viewReservationVm.reverse;">Status</th>
+                        <th data-ng-click="viewReservationVm.sorter= 'partyDate'; viewReservationVm.reverse = !viewReservationVm.reverse;">Party Date</th>
                         <th>Info</th>
                     </tr>
                     </thead>
-                    <tr data-ng-repeat="rl in viewReservationVm.reservationsList">
+                    <tr data-ng-repeat="rl in viewReservationVm.reservationsList | filter:viewReservationVm.searchText | orderBy:viewReservationVm.sorter:viewReservationVm.reverse">
                         <td>{{rl.confirmationCode}}</td>
                         <td>{{rl.firstName}}</td>
                         <td>{{rl.lastName}}</td>

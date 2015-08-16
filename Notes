@@ -36,3 +36,22 @@ Update as on 8/15/2015 2:14 Am
   a) modal popup for edit,book reservation, and for update profile and settings
   b) filters and sorting to columns for tables  in admin functionalities.
   c) Pagination to tables if possible
+
+
+Update as on 8/16/2015 12:47 AM
+
+1) Implemented update web settings functionality
+2) Implemented modal popups for edit, book reservations, displaying modal popups after update profile and settings operations
+3) Created new directive called "ngPlaceholder" for binding data to placeholders of input form dynamically. See settings and profile web links for getting an idea
+4) Dynamically retrieving restaurant web settings and profile information and binding it to the home page content
+5) Created a General purpose modal popup which will display messages and confirmation dialog boxes for the purpose of point number "2" listed above
+6) Implemented filters and sorting to table views
+7) If time permits the following tasks may be taken care of:
+   a) pagination if possible to table views
+   b) cookies instead of sessions for sotring user session data during the time between login and logout
+   c) check for valid session in every page
+   d) implement auto assign functionality
+   e) Check if everything is up to date in github, i.e source code in eclipse project directory is in sync with github
+   f) unit test cases
+   g) finishing touch to UI
+   h) eliminating warnings if any

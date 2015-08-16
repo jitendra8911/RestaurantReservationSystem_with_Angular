@@ -357,5 +357,32 @@ finally
 		}
 		return count;
 	}
+	
+	
+	public int updateRestaurantWebSettings(RestaurantProfileAndSettings restaurantData) throws AppException {
+
+		Connection con = DBUtil.getConncetionToDB();
+		CallableStatement cs = null;
+		int count;
+		try {
+
+			cs = con.prepareCall("{call update_restaurant_settings(?,?,?,?,?,?)}");
+			cs.setBoolean(1, restaurantData.isAutoAssign());
+			cs.setString(2, restaurantData.getOpenTime());
+			cs.setString(3, restaurantData.getClosingTime());
+			cs.setString(4, restaurantData.getOpenDays());
+			cs.setString(5, restaurantData.getClosingDays());
+			cs.registerOutParameter(6, java.sql.Types.INTEGER);
+			cs.executeQuery();
+			count=cs.getInt(6);
+			} catch (SQLException e) {
+			e.printStackTrace();
+			throw new AppException("error in updating Restaurant Web Settings", e.getCause());
+		} finally {
+			DBUtil.closeConnection(con);
+			DBUtil.closeStatement(cs);
+		}
+		return count;
+	}
 
 }

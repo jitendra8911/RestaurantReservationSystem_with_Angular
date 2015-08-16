@@ -25,7 +25,7 @@ public class CustomerController {
 		CustomerDAO customerDAO=new CustomerDAO();
 		try {
 			bookingDetails=customerDAO.reserveTable(bookingDetails);
-			appRes.setMessage("successfully reserved");
+			appRes.setMessage("Successfully reserved a table with confirmation number : "+bookingDetails.getConfirmationCode()+ " .Please save it for future reference");
 			appRes.setPayload(bookingDetails);
 		} catch (AppException e) {
 			// TODO Auto-generated catch block

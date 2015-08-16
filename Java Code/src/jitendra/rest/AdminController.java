@@ -220,15 +220,45 @@ public class AdminController {
 		try {
 			count=adminDAO.updateRestaurantProfile(restaurantData);
 			if(count>0)
-			appRes.setMessage("successfully update restaurant profile");
+			appRes.setMessage("Successfully updated restaurant profile");
 			else
 			{
 				appRes.setMessage("couldn't update restaurant profile");
+				appRes.setStatus(AppResponse.ERROR);
 			}
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			appRes.setMessage("error in updating restaurant profile");
+			appRes.setStatus(AppResponse.ERROR);
+		}
+		return appRes;
+	}
+	
+	
+	
+	@POST
+	@Path("/updateRestaurantWebSettings")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public AppResponse updateRestaurantWebSettings(RestaurantProfileAndSettings restaurantData)
+	{
+		AppResponse appRes=new AppResponse();
+		AdminDAO adminDAO=new AdminDAO();
+		int count;
+		try {
+			count=adminDAO.updateRestaurantWebSettings(restaurantData);
+			if(count>0)
+			appRes.setMessage("successfully update restaurant web settings");
+			else
+			{
+				appRes.setMessage("couldn't update restaurant web settings");
+				appRes.setStatus(AppResponse.ERROR);
+			}
+		} catch (AppException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			appRes.setMessage("error in updating restaurant web settings");
 			appRes.setStatus(AppResponse.ERROR);
 		}
 		return appRes;

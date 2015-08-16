@@ -4,8 +4,8 @@
      angular.module('restaurantReservationSystem')
      .controller('ReserveCtrl',ReserveCtrlFn);
      
-     ReserveCtrlFn.$inject=['customerService']
-     function ReserveCtrlFn(customerService)
+     ReserveCtrlFn.$inject=['customerService','$modal','$location']
+     function ReserveCtrlFn(customerService,$modal,$location)
      {
     	 var reserveVm=this;
     	 reserveVm.reserveFormSubmitted=false;
@@ -26,7 +26,30 @@
  	    		customerService
    		      .resreveTable(reserveVm.bookingDetails)
    		      .then(function(data) {
-   		        console.log(data);
+   		    	  
+   		 	  var modalInstance = $modal.open({
+			      animation: true,
+			      templateUrl: 'app/views/modalGeneralMessage-tmpl.html',
+			      controller: 'ModalGeneralMessageCtrl',
+			      controllerAs : 'modalGeneralMessageVm',
+			     
+			      resolve: {
+			    	  message: function () {
+			          return data.message;
+			        },
+			      }
+			    });
+
+			    modalInstance.result.then(function () {
+			    	
+			    	 if(data.status==='success')
+					 {
+			    	$location.path('/home')
+					 }
+
+			    }, function () {
+			    //  console.log('Modal dismissed at: ' + new Date());
+			    });		
    		        }, function(err) {
    		        console.log(err);
    		      });

@@ -3,18 +3,18 @@
 
             <section class="sectionViewContactList">
                 <h1>Contacts</h1>
-
+<input type="text" class="form-control" data-ng-model="viewContactsVm.searchText" placeholder="Search For Contacts Here...">
                 <table class="tblContactList tblGeneral" align="center">
                     <thead>
-                    <tr>
-                        <th>Contact#</th>
-                        <th>Phone</th>
-                        <th>FirstName</th>
-                        <th>LastName</th>
+                    <tr data-ng-init="viewContactsVm.sorter='serialNumber'; viewContactsVm.reverse = false;">
+                        <th data-ng-click="viewContactsVm.sorter= 'serialNumber'; viewContactsVm.reverse = !viewContactsVm.reverse;">Contact#</th>
+                        <th data-ng-click="viewContactsVm.sorter= 'telephone'; viewContactsVm.reverse = !viewContactsVm.reverse;">Phone</th>
+                        <th data-ng-click="viewContactsVm.sorter= 'firstName'; viewContactsVm.reverse = !viewContactsVm.reverse;">FirstName</th>
+                        <th data-ng-click="viewContactsVm.sorter= 'lastName'; viewContactsVm.reverse = !viewContactsVm.reverse;">LastName</th>
                         <th>Past Reservations</th>
                     </tr>
                     </thead>
-                    <tr data-ng-init="id=1" data-ng-repeat="c in viewContactsVm.contacts">
+                    <tr data-ng-init="id=1" data-ng-repeat="c in viewContactsVm.contacts | filter:viewContactsVm.searchText | orderBy:viewContactsVm.sorter:viewContactsVm.reverse">
                         <td>{{id+$index}}</td>
                         <td>{{c.telephone}}</td>
                         <td>{{c.firstName}}</td>

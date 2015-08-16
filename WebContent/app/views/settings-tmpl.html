@@ -7,19 +7,19 @@
             <table class="tblSettings">
                 <tr>
                 <td><label >Auto Assign</label></td>
-                <td><input type="radio" name="autoAssign" value="Yes" checked>Yes
-                <input type="radio" name="autoAssign" value="No" >No
+                <td><input type="radio" name="autoAssign" value="true" data-ng-model="settingsVm.restaurantData.autoAssign">Yes
+                <input type="radio" name="autoAssign" value="false"  data-ng-model="settingsVm.restaurantData.autoAssign">No
                 
                 
                 </td>
                 </tr>
                 <tr>
                     <td> <label for="restaurantOpenTimings">Restaurant Open Timings</label></td>
-                    <td> <input type="time"  name="openTime" id="restaurantOpenTimings" data-ng-model="settingsVm.openTime" required/>
+                    <td> <input type="time"  name="openTime" id="restaurantOpenTimings" data-ng-model="settingsVm.openTime" data-ng-placeholder='settingsVm.placeholder.openTime' required/>
                     
                      <div data-ng-messages="settingsForm.openTime.$error" class="has-error" data-ng-if="settingsForm.openTime.$dirty">
            <p data-ng-message="required">Restaurant Open Timings is required</p> 
-           
+            <p data-ng-show="settingsForm.openTime.$error.time">Not a valid time!</p>
                </div>
                <div class="has-error">
                <p data-ng-show="settingsForm.openTime.$pristine && settingsVm.settingsFormSubmitted">Restaurant Open Timings is required</p>
@@ -28,13 +28,14 @@
                 </tr>
                 <tr>
                     <td> <label for="restaurantCloseTimings">Restaurant Closing Timings</label></td>
-                    <td> <input type="time" name="closeTime" id="restaurantCloseTimings" data-ng-model="settingsVm.closeTime" required/>
+                    <td> <input type="time" name="closeTime" id="restaurantCloseTimings" data-ng-model="settingsVm.closingTime" data-ng-placeholder='settingsVm.placeholder.closingTime' required/>
                      <div data-ng-messages="settingsForm.closeTime.$error" class="has-error" data-ng-if="settingsForm.closeTime.$dirty">
            <p data-ng-message="required">Restaurant Closing Timings is required</p> 
            
                </div>
                <div class="has-error">
                <p data-ng-show="settingsForm.closeTime.$pristine && settingsVm.settingsFormSubmitted">Restaurant Closing Timings is required</p>
+                <p data-ng-show="settingsForm.closeTime.$error.time">Not a valid time!</p>
                </div>
                     
                     </td>
@@ -42,25 +43,19 @@
                 <tr>
                     <td> <label>Restaurant Open Days</label> </td>
                     <td>
-                    <input type="checkbox" name="Opendays" value="Sunday" >Sunday
-                    <input type="checkbox" name="Opendays" value="Monday" checked >Monday
-                    <input type="checkbox" name="Opendays" value="Tuesday" >Tuesday
-                    <input type="checkbox" name="Opendays" value="Wednesday" >Wednesday
-                    <input type="checkbox" name="Opendays" value="Thursday" >Thursday
-                    <input type="checkbox" name="Opendays" value="Friday" >Friday
-                    <input type="checkbox" name="Opendays" value="Saturday" >Saturday
-                                      
+                    <span data-ng-repeat="option in settingsVm.optionsOpenDays">
+                    <input type="checkbox" data-ng-model="option.value" />
+                    <label>{{option.name}}</label>
+                    </span>
                     </td>
                 </tr>
                 <tr>
                     <td> <label>Restaurant Closing Days</label> </td>
-                     <td>   <input type="checkbox" name="Closingdays" value="Sunday" checked >Sunday
-                        <input type="checkbox" name="Closingdays" value="Monday" >Monday
-                        <input type="checkbox" name="Closingdays" value="Tuesday" >Tuesday
-                        <input type="checkbox" name="Closingdays" value="Wednesday" >Wednesday
-                        <input type="checkbox" name="Closingdays" value="Thursday" >Thursday
-                        <input type="checkbox" name="Closingdays" value="Friday" >Friday
-                        <input type="checkbox" name="Closingdays" value="Saturday" >Saturday
+                     <td>  
+                     <span data-ng-repeat="option in settingsVm.optionsClosingDays">
+                    <input type="checkbox" data-ng-model="option.value" />
+                    <label>{{option.name}}</label>
+                    </span>
                       
                     </td>
                 </tr>

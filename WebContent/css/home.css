@@ -8,6 +8,10 @@ label
 {
     font-weight: normal;
 }
+.label-bold
+{
+	 font-weight: bold;
+}
 
 /* for footer */
 

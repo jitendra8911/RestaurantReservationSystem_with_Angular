@@ -156,7 +156,28 @@
 							        });
 
 							      return defer.promise;
-							    };				    
+							    };		
+							    
+							    
+							    
+							    self.updateRestaurantWebSettings=function(restaurantData)
+							    {
+							    	var defer = $q.defer();
+
+								      $http({
+								          method: 'POST',
+								          url: 'api/admin/updateRestaurantWebSettings',
+								         data:restaurantData
+								        })
+								        .success(function(data) {
+								          defer.resolve(data);
+								        })
+								        .error(function(err) {
+								          defer.reject(err);
+								        });
+
+								      return defer.promise;
+								    };	
 
 	}
 
