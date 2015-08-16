@@ -4,6 +4,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -52,11 +53,12 @@ public class CustomerController {
 			isUpdated=customerDAO.updateReservation(bookingDetails);
 			if(isUpdated)
 			{
-				appRes.setMessage("successfully updated the reservation");
+				appRes.setMessage("Successfully updated the reservation");
 			}
 			else
 			{
-				appRes.setMessage("there are no changes in the reservation to update");
+				appRes.setMessage("There are no changes in the reservation to update");
+				appRes.setStatus(AppResponse.ERROR);
 			}
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
@@ -69,10 +71,10 @@ public class CustomerController {
 	
 
 	@GET
-	@Path("/cancelReservation")
+	@Path("/cancelReservation/{confirmationCode}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public AppResponse cancelReservation(int confirmationCode)
+	public AppResponse cancelReservation(@PathParam("confirmationCode") int confirmationCode)
 	{
 		AppResponse appRes=new AppResponse();
 		CustomerDAO customerDAO=new CustomerDAO();

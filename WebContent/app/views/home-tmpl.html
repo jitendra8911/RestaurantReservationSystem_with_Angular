@@ -53,10 +53,10 @@
                 <label for="Confirmation Code">Confirmation Code</label>
             </span>
             <span class="EditReservationDetails" id="Confirmation Code">
-                <input type="text" name="confirmationCode" data-ng-model="homeVm.confirmationCode" class="textInputField" required/>
+                <input type="text" name="confirmationCode" data-ng-model="homeVm.confirmationCode" class="textInputField" required data-ng-pattern="/^\d+$/"/>
                   <div data-ng-messages="reserveTableForm.confirmationCode.$error" class="has-error" data-ng-if="reserveTableForm.confirmationCode.$dirty">
-           <p data-ng-message="required">Confirmation Code is required</p> 
-           
+           <p data-ng-message="required">Confirmation Number is required</p> 
+           <p data-ng-message="pattern">Confirmation Number is not valid</p> 
                </div>
                <div class="has-error">
                <p data-ng-show="reserveTableForm.confirmationCode.$pristine && homeVm.reserveTableFormsubmitted">Confirmation Code is required </p>

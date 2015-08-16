@@ -29,7 +29,7 @@
     				
     				 adminService.updateRestaurantProfile(profileVm.restaurantData).then(function(data) {
     					
-					  var modalInstance = $moda.open({
+					  var modalInstance = $modal.open({
 					      animation: true,
 					      templateUrl: 'app/views/modalGeneralMessage-tmpl.html',
 					      controller: 'ModalGeneralMessageCtrl',

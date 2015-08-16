@@ -33,10 +33,10 @@ public class AdminController {
 		try {
 			seatingDetailsList=adminDAO.viewSeatingArea();
 			appRes.setPayload(seatingDetailsList);
-			appRes.setMessage("sucessfully retrieved seating details");
+			appRes.setMessage("Sucessfully retrieved seating details");
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in retrieving seating details");
+			appRes.setMessage("Error in retrieving seating details");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
@@ -59,21 +59,25 @@ public class AdminController {
 			appRes.setPayload(bookingDetails);
 			if(bookingDetails.getStatus()==null)
 			{
-				appRes.setMessage("there is no reservation with this confirmation number");
+				appRes.setMessage("There is no reservation with this confirmation number");
+				appRes.setStatus(AppResponse.ERROR);
 			}
 			else
 			{
-			appRes.setMessage("sucessfully retrieved booking details");
+			appRes.setMessage("Sucessfully retrieved booking details");
 			}
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in retrieving booking details");
+			appRes.setMessage("Error in retrieving booking details");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
 		
 		return appRes;
 	}
+	
+	
+	
 	
 	
 	
@@ -89,10 +93,10 @@ public class AdminController {
 		try {
 			bookingDetailsList=adminDAO.retrieveReservationsList();
 			appRes.setPayload(bookingDetailsList);
-			appRes.setMessage("sucessfully retrieved reservations list");
+			appRes.setMessage("Sucessfully retrieved reservations list");
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in retrieving reservations list");
+			appRes.setMessage("Error in retrieving reservations list");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
@@ -117,7 +121,7 @@ public class AdminController {
 			
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in retrieving vacant tables");
+			appRes.setMessage("Error in retrieving vacant tables");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
@@ -140,15 +144,15 @@ public class AdminController {
 			appRes.setPayload(bookingDetails);
 			if(bookingDetails.getTableId()==null)
 			{
-				appRes.setMessage("could not change or assign table to this confirmation number");
+				appRes.setMessage("Could not change or assign table to this confirmation number");
 			}
 			else
 			{
-			appRes.setMessage("sucessfully changed/assigned table");
+			appRes.setMessage("Sucessfully changed/assigned table");
 			}
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in changing/assigning table and retrieving back the updated reservation details");
+			appRes.setMessage("Error in changing/assigning table and retrieving back the updated reservation details");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
@@ -171,10 +175,10 @@ public class AdminController {
 		try {
 			contactList=adminDAO.retrieveContacts();
 			appRes.setPayload(contactList);
-			appRes.setMessage("sucessfully retrieved customer contact list");
+			appRes.setMessage("Sucessfully retrieved customer contact list");
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in retrieving customer contact list");
+			appRes.setMessage("Error in retrieving customer contact list");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
@@ -196,10 +200,10 @@ public class AdminController {
 		try {
 			bookingDetailsList=adminDAO.viewPastReservations(telephone);
 			appRes.setPayload(bookingDetailsList);
-			appRes.setMessage("sucessfully retrieved past reservations");
+			appRes.setMessage("Sucessfully retrieved past reservations");
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
-			appRes.setMessage("error in retrieving past reservations");
+			appRes.setMessage("Error in retrieving past reservations");
 			appRes.setStatus(AppResponse.ERROR);
 			e.printStackTrace();
 		}
@@ -223,13 +227,13 @@ public class AdminController {
 			appRes.setMessage("Successfully updated restaurant profile");
 			else
 			{
-				appRes.setMessage("couldn't update restaurant profile");
+				appRes.setMessage("Couldn't update restaurant profile");
 				appRes.setStatus(AppResponse.ERROR);
 			}
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			appRes.setMessage("error in updating restaurant profile");
+			appRes.setMessage("Error in updating restaurant profile");
 			appRes.setStatus(AppResponse.ERROR);
 		}
 		return appRes;
@@ -249,16 +253,16 @@ public class AdminController {
 		try {
 			count=adminDAO.updateRestaurantWebSettings(restaurantData);
 			if(count>0)
-			appRes.setMessage("successfully update restaurant web settings");
+			appRes.setMessage("Successfully update restaurant web settings");
 			else
 			{
-				appRes.setMessage("couldn't update restaurant web settings");
+				appRes.setMessage("Couldn't update restaurant web settings");
 				appRes.setStatus(AppResponse.ERROR);
 			}
 		} catch (AppException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			appRes.setMessage("error in updating restaurant web settings");
+			appRes.setMessage("Error in updating restaurant web settings");
 			appRes.setStatus(AppResponse.ERROR);
 		}
 		return appRes;

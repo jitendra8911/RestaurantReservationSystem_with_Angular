@@ -51,11 +51,10 @@
 			    self.cancelReservation=function(confirmationCode)
 			    {
 			    	var defer = $q.defer();
-
+                    console.log('confirmationCode is '+confirmationCode)
 				      $http({
 				          method: 'GET',
-				          url: 'api/customer/cancelReservation',
-				         data:confirmationCode
+				          url: 'api/customer/cancelReservation/' + confirmationCode,
 				        })
 				        .success(function(data) {
 				          defer.resolve(data);

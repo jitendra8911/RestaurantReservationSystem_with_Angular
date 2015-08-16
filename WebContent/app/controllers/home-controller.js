@@ -3,8 +3,8 @@
 {
      angular.module('restaurantReservationSystem')
      .controller('HomeCtrl',HomeCtrlFn)
-     HomeCtrlFn.$inject=['$location','$filter','customerService']
-     function HomeCtrlFn($location,$filter,customerService)
+     HomeCtrlFn.$inject=['$location','$filter','customerService','$modal','adminService']
+     function HomeCtrlFn($location,$filter,customerService,$modal,adminService)
      {
     	    var homeVm=this;
     	    homeVm.partySize="2";
@@ -48,8 +48,71 @@
     	    	console.log(homeVm.confirmationCode);
     	    	if (isValid) {
     	        // Submit as normal
-    	    		sessionStorage.setItem('confirmationCode',homeVm.confirmationCode);
-    	    		$location.path('/editReservation')
+    	    		
+    	    		// check if confirmationCode exists
+    	    		// if not display a popup message that the confirmation number doesn't exist
+    	    		
+    	    		adminService
+    	    	      .viewReservationDetails(homeVm.confirmationCode)
+    	    	      .then(function(data) {
+    	    	    	  if(data.status==='success')
+    	    	    		  {
+    	    	    		  
+    	    	    		  sessionStorage.setItem('confirmationCode',homeVm.confirmationCode);
+    	    	    		  sessionStorage.setItem('partySize',data.payload.partySize);
+    	    	    		  sessionStorage.setItem('partyDate',data.payload.partyDate);
+    	    	    		  sessionStorage.setItem('partyTime',data.payload.partyTime);
+    	    	    		  sessionStorage.setItem('telephone',data.payload.telephone);
+    	    	    		  $location.path('/editReservation')
+    	    	    		  }
+    	    	    	  else
+    	    	    		  {
+    	    	    		    
+    	    	    		     
+    	    	    		  var modalInstance = $modal.open({
+    	    				      animation: true,
+    	    				      templateUrl: 'app/views/modalGeneralMessage-tmpl.html',
+    	    				      controller: 'ModalGeneralMessageCtrl',
+    	    				      controllerAs : 'modalGeneralMessageVm',
+    	    				     
+    	    				      resolve: {
+    	    				    	  message: function () {
+    	    				          return data.message;
+    	    				        },
+    	    				      }
+    	    				    });
+
+    	    				    modalInstance.result.then(function () {
+    	    				    }, function () {
+    	    				    //  console.log('Modal dismissed at: ' + new Date());
+    	    				    });	
+    	    	    		  
+    	    	    		  
+    	    	    		  
+    	    	    		  }
+    	    	        }, function(err) {
+    	    	        	
+    	    	        	
+    	    	        	
+    	    	      	  var modalInstance = $modal.open({
+	    				      animation: true,
+	    				      templateUrl: 'app/views/modalGeneralMessage-tmpl.html',
+	    				      controller: 'ModalGeneralMessageCtrl',
+	    				      controllerAs : 'modalGeneralMessageVm',
+	    				     
+	    				      resolve: {
+	    				    	  message: function () {
+	    				          return 'please enter a valid reservation number';
+	    				        },
+	    				      }
+	    				    });
+
+	    				    modalInstance.result.then(function () {
+	    				    }, function () {
+	    				    //  console.log('Modal dismissed at: ' + new Date());
+	    				    });	
+    	    	      });   	    		
+    	    	
     	    		
     	      } else {
     	    	  homeVm.submitted = true;

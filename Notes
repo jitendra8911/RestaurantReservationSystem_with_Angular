@@ -55,3 +55,11 @@ Update as on 8/16/2015 12:47 AM
    f) unit test cases
    g) finishing touch to UI
    h) eliminating warnings if any
+
+Update as on 8/16/2015  5:50 PM
+
+1) Created confirmation messages for booking reservation, update reservation, cancel reservation, and few general messages which displays the result of the operations
+and for which I haven't done earlier,for example: booking reservation, update reservation, and cancel reservation
+2) In order to display confirmation dialog boxes I have create "modalConfirmationMessage-controller.js"
+3) Added pom.xml file which is related to Maven and contains the jar files information that has to be downloaded which creating the maven project
+4) Added steps for building the project in your environment in the "readMe.md" file.

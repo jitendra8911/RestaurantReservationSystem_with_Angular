@@ -12,7 +12,7 @@ public class DBUtil {
 
 	private final static String URL = "jdbc:mysql://localhost:3306/restaurant_db";
 	private final static String USER = "root";
-	private final static String PASSWORD = "March19_1985";
+	private final static String PASSWORD = "root";
 
 	static {
 		try {

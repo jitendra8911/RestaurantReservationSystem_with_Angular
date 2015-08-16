@@ -67,13 +67,13 @@ insert into reservationList values(null,1,'2015-08-14','21:30',5,'confirmed','St
 insert into reservationList values(null,1,'2015-08-14','17:00',5,'confirmed','Steven','Waugh','918-287-7261');
 insert into reservationList values(null,8,'2015-08-14','17:05',5,'confirmed','Cris','Gayle','918-287-7239');
 
-delete from reservationList;
-drop table reservationLIst;
 
 
 /* inserting record into restaurant profile */
 
 insert into restaurantprofile values('Jitendra\'s restaurant','918-287-8750','jmalakal@uncc.edu','Greensboro, NC');
+
+select * from restaurantprofile;
 
 /* inserting record into restaurant web settings */
 
