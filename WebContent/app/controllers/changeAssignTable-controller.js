@@ -1,15 +1,10 @@
-(function()
+(function () {
+    angular.module('restaurantReservationSystem')
+        .controller('ChangeAssignTableCtrl', ChangeAssignTableCtrlFn);
 
-{
-     angular.module('restaurantReservationSystem')
-     .controller('ChangeAssignTableCtrl',ChangeAssignTableCtrlFn);
-     
-     ChangeAssignTableCtrlFn.$inject=[]
-     function ChangeAssignTableCtrlFn()
-     {
-    	
-     }
-     
-}
+    ChangeAssignTableCtrlFn.$inject = []
+    function ChangeAssignTableCtrlFn() {
 
-)()
+    }
+
+})()

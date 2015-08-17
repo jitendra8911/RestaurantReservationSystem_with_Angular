@@ -1,46 +1,63 @@
 <div class="container">
-  <h3>User Profile</h3>
-  <form class="form-horizontal">
-    <div class="form-group">
-      <div class="col-sm-4">
-        <p class="form-control-static">FirstName: {{viewPastReservationsVm.person.firstName}}</p>
-      </div>
-        <div class="col-sm-4">
-        <p class="form-control-static">LastName: {{viewPastReservationsVm.person.lastName}}</p>
-      </div>
-        <div class="col-sm-4">
-        <p class="form-control-static">Telephone: {{viewPastReservationsVm.person.telephone}}</p>
-      </div>
-    </div>
-    </form>
-    </div>
-    
-    
-            <section class="sectionViewContactList">
-                <h1>User's Past Reservations</h1>
-                <input type="text" class="form-control" data-ng-model="viewPastReservationsVm.searchText" placeholder="Search For Past Reservations Of User Here...">
-                <table class="tblContactList tblGeneral" >
-                    <thead>
-                    <tr data-ng-init="viewPastReservationsVm.sorter='serialNumber'; viewPastReservationsVm.reverse = false;">
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'serialNumber'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Reservation #</th>
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'confirmationCode'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Confirmation Code#</th>
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'partySize'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Party Size</th>
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'partyTime'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Party Time</th>
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'partyDate'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Party Date</th>
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'booking_status'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Booking Status</th>
-                        <th data-ng-click="viewPastReservationsVm.sorter= 'tableId'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">Table #</th>
-                    </tr>
-                    </thead>
-                    <tr data-ng-init="id=1" data-ng-repeat="h in viewPastReservationsVm.history | filter:viewPastReservationsVm.searchText | orderBy:viewPastReservationsVm.sorter:viewPastReservationsVm.reverse">
-                        <td>{{id+$index}}</td>
-                        <td>{{h.confirmationCode}}</td>
-                        <td>{{h.partySize}}</td>
-                        <td>{{h.partyTime}}</td>
-                        <td>{{h.partyDate}}</td>
-                        <td>{{h.status}}</td>
-                        <td>{{h.tableId}}</td>
-                    </tr>
-                   
-                </table>
+    <h3>User Profile</h3>
 
-            </section>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4">
+                <p class="form-control-static">FirstName: {{viewPastReservationsVm.person.firstName}}</p>
+            </div>
+            <div class="col-sm-4">
+                <p class="form-control-static">LastName: {{viewPastReservationsVm.person.lastName}}</p>
+            </div>
+            <div class="col-sm-4">
+                <p class="form-control-static">Telephone: {{viewPastReservationsVm.person.telephone}}</p>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<section class="sectionViewContactList">
+    <h1>User's Past Reservations</h1>
+    <input type="text" class="form-control" data-ng-model="viewPastReservationsVm.searchText"
+           placeholder="Search For Past Reservations Of User Here...">
+    <table class="tblContactList tblGeneral">
+        <thead>
+        <tr data-ng-init="viewPastReservationsVm.sorter='serialNumber'; viewPastReservationsVm.reverse = false;">
+            <th data-ng-click="viewPastReservationsVm.sorter= 'serialNumber'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Reservation #
+            </th>
+            <th data-ng-click="viewPastReservationsVm.sorter= 'confirmationCode'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Confirmation Code#
+            </th>
+            <th data-ng-click="viewPastReservationsVm.sorter= 'partySize'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Party Size
+            </th>
+            <th data-ng-click="viewPastReservationsVm.sorter= 'partyTime'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Party Time
+            </th>
+            <th data-ng-click="viewPastReservationsVm.sorter= 'partyDate'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Party Date
+            </th>
+            <th data-ng-click="viewPastReservationsVm.sorter= 'booking_status'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Booking Status
+            </th>
+            <th data-ng-click="viewPastReservationsVm.sorter= 'tableId'; viewPastReservationsVm.reverse = !viewPastReservationsVm.reverse;">
+                Table #
+            </th>
+        </tr>
+        </thead>
+        <tr data-ng-init="id=1"
+            data-ng-repeat="h in viewPastReservationsVm.history | filter:viewPastReservationsVm.searchText | orderBy:viewPastReservationsVm.sorter:viewPastReservationsVm.reverse">
+            <td>{{id+$index}}</td>
+            <td>{{h.confirmationCode}}</td>
+            <td>{{h.partySize}}</td>
+            <td>{{h.partyTime}}</td>
+            <td>{{h.partyDate}}</td>
+            <td>{{h.status}}</td>
+            <td>{{h.tableId}}</td>
+        </tr>
+
+    </table>
+
+</section>

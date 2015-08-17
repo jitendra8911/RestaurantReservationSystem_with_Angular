@@ -1,30 +1,41 @@
- <!-- start of view Seating Area -->
-        <div id="viewSeatingArea">
+<!-- start of view Seating Area -->
+<div id="viewSeatingArea">
 
-            <section class="sectionSeatingArea">
-                <h1>Seating Area</h1>
-<input type="text" class="form-control" data-ng-model="viewSeatingAreaVm.searchText" placeholder="Search For Tables Here...">
-                <table class="tblViewSeating tblGeneral" align="center">
-                    <thead>
-                    <tr data-ng-init="viewSeatingAreaVm.sorter='tableId'; viewSeatingAreaVm.reverse = false;">
-                        <th data-ng-click="viewSeatingAreaVm.sorter= 'tableId'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">Table#</th>
-                        <th data-ng-click="viewSeatingAreaVm.sorter= 'capacity'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">Size</th>
-                        <th data-ng-click="viewSeatingAreaVm.sorter= 'status'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">Status</th>
-                        <th data-ng-click="viewSeatingAreaVm.sorter= 'partyTime'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">Since</th>
-                        <th data-ng-click="viewSeatingAreaVm.sorter= 'confirmationCode'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">Confirmation #</th>
-                    </tr>
-                    </thead>
-                    <tr data-ng-repeat="t in viewSeatingAreaVm.tables  | filter:viewSeatingAreaVm.searchText | orderBy:viewSeatingAreaVm.sorter:viewSeatingAreaVm.reverse">
-                        <td>{{t.tableId}}</td>
-                        <td>{{t.capacity}}</td>
-                        <td>{{t.status}}</td>
-                        <td>{{t.partyTime}}</td>
-                        <td><a href="#/viewSeatingArea/{{t.confirmationCode}}">{{t.confirmationCode}}</a> </td>
-                    </tr>
-                   
-                   </table>
+    <section class="sectionSeatingArea">
+        <h1>Seating Area</h1>
+        <input type="text" class="form-control" data-ng-model="viewSeatingAreaVm.searchText"
+               placeholder="Search For Tables Here...">
+        <table class="tblViewSeating tblGeneral" align="center">
+            <thead>
+            <tr data-ng-init="viewSeatingAreaVm.sorter='tableId'; viewSeatingAreaVm.reverse = false;">
+                <th data-ng-click="viewSeatingAreaVm.sorter= 'tableId'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">
+                    Table#
+                </th>
+                <th data-ng-click="viewSeatingAreaVm.sorter= 'capacity'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">
+                    Size
+                </th>
+                <th data-ng-click="viewSeatingAreaVm.sorter= 'status'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">
+                    Status
+                </th>
+                <th data-ng-click="viewSeatingAreaVm.sorter= 'partyTime'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">
+                    Since
+                </th>
+                <th data-ng-click="viewSeatingAreaVm.sorter= 'confirmationCode'; viewSeatingAreaVm.reverse = !viewSeatingAreaVm.reverse;">
+                    Confirmation #
+                </th>
+            </tr>
+            </thead>
+            <tr data-ng-repeat="t in viewSeatingAreaVm.tables  | filter:viewSeatingAreaVm.searchText | orderBy:viewSeatingAreaVm.sorter:viewSeatingAreaVm.reverse">
+                <td>{{t.tableId}}</td>
+                <td>{{t.capacity}}</td>
+                <td>{{t.status}}</td>
+                <td>{{t.partyTime}}</td>
+                <td><a href="#/viewSeatingArea/{{t.confirmationCode}}">{{t.confirmationCode}}</a></td>
+            </tr>
 
-            </section>
+        </table>
 
-        </div>
-        <!-- end of seating area -->
+    </section>
+
+</div>
+<!-- end of seating area -->

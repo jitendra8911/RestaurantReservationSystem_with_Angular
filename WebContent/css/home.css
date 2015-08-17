@@ -1,16 +1,15 @@
 /* Styles go here */
 
-*
-{
+* {
     box-sizing: border-box;
 }
-label
-{
+
+label {
     font-weight: normal;
 }
-.label-bold
-{
-	 font-weight: bold;
+
+.label-bold {
+    font-weight: bold;
 }
 
 /* for footer */
@@ -18,134 +17,124 @@ label
 * {
     margin: 0;
 }
+
 html, body {
     height: 100%;
 }
+
 .wrapper {
     min-height: 100%;
     height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
     height: 100%;
     margin: 0 auto -55px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer, .push {
     height: 55px; /* .push must be the same height as .footer */
 }
 
-.divFooter
-{
-    text-align:center;
+.divFooter {
+    text-align: center;
 
 }
-
 
 /* end of footer design */
 
 /* for navigation menu */
-.navbar-nav
-{
-    width:100%;
+.navbar-nav {
+    width: 100%;
     text-align: center;
-   margin-right: auto;
+    margin-right: auto;
     margin-left: auto;
 
 }
-.navbar-nav>li
-{
+
+.navbar-nav > li {
     display: inline-block;
 }
 
-.navbar-default .navbar-nav>li>a:hover
-{
-    background-color:rgb(211,211,211);
-}
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover
-{
-    background-color:rgb(197,183,183);
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: rgb(211, 211, 211);
 }
 
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    background-color: rgb(197, 183, 183);
+}
 
 /* end of navigation menu styles */
 
-
-
-
 /* for login content */
 .sectionLogin {
-    border:1px solid black;
-    margin:5px;margin-bottom:15px;padding:8px;
-    text-align:center;
+    border: 1px solid black;
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 8px;
+    text-align: center;
 }
 
-.login
-{
-    display:inline-block;
-    padding:0.5em;
+.login {
+    display: inline-block;
+    padding: 0.5em;
 }
 
 /* end of login content */
 
-.header
-{
-    box-sizing:border-box;
-    border:1px solid black;
-    height:5em;
+.header {
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 5em;
     background-color: rgba(25, 172, 180, 0.5);
 }
 
-.divHeader
-{
+.divHeader {
     text-align: center;
     font-weight: 700;
     font-size: 2em;
     margin-top: 0.5em;
 }
 
-
-.divNav
-{
-    text-align:center;
+.divNav {
+    text-align: center;
 }
-.divNav:before
-{
-    content:".";
+
+.divNav:before {
+    content: ".";
     visibility: hidden;
     display: block;
     height: 2em;
 }
-.menu
-{
-    padding:10px;
+
+.menu {
+    padding: 10px;
 }
-introduction
-{
-    display:block;
+
+introduction {
+    display: block;
 }
-.description
-{
+
+.description {
     text-align: center;
 }
-.description:after,.description:before
-{
-    content:".";
+
+.description:after, .description:before {
+    content: ".";
     visibility: hidden;
     display: block;
     height: 5em;
 }
-.description:before
-{
+
+.description:before {
     height: 1em;
 }
 
-
-.divEditReservationDetails,.divReservationDetails,.divEdit
-{
-    text-align:center;
-    margin:10px;
+.divEditReservationDetails, .divReservationDetails, .divEdit {
+    text-align: center;
+    margin: 10px;
 }
-.TableReservationDetails,.EditReservationDetails
-{
-    box-sizing:border-box;
-    padding:5px;
+
+.TableReservationDetails, .EditReservationDetails {
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 a.button {
@@ -154,21 +143,19 @@ a.button {
     appearance: button;
     text-decoration: none;
     color: initial;
-    margin:10px;
+    margin: 10px;
     background-color: #8FD0EC;
 }
 
-
-.divCreateReservation,.divEditReservation
-{
+.divCreateReservation, .divEditReservation {
 
     text-align: center;
 
-    display:block;
+    display: block;
 
 }
 
-.divNav:after,section:after,.divReservationDetails:after,.divEditReservationDetails:after{
+.divNav:after, section:after, .divReservationDetails:after, .divEditReservationDetails:after {
     content: ".";
     visibility: hidden;
     display: block;
@@ -176,52 +163,46 @@ a.button {
     clear: both;
 }
 
-
-.divReserve:after,.divProfile:after
-{
-    content:".";
+.divReserve:after, .divProfile:after {
+    content: ".";
     visibility: hidden;
     display: block;
 }
 
-.sectionReservation,.sectionProfile
-{
+.sectionReservation, .sectionProfile {
     text-align: center;
-    border:1px solid black;
-    margin:5px;margin-bottom:15px;padding:8px;
+    border: 1px solid black;
+    margin: 5px;
+    margin-bottom: 15px;
+    padding: 8px;
 }
 
-.reserve,.spanProfile,.createReservationFields,.editReservationInputFields
-{
-    box-sizing:border-box;
-    padding:5px;
+.reserve, .spanProfile, .createReservationFields, .editReservationInputFields {
+    box-sizing: border-box;
+    padding: 5px;
 }
 
-
-.button
-{
-    border:1px solid black;
+.button {
+    border: 1px solid black;
     background-color: #8FD0EC;
-    border-radius:5px;
-    box-sizing:border-box;
-    padding:10px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
     box-shadow: 1px 1px 1px 1px #888888;
     font-family: "Open Sans", Arial, sans-serif;
-    font-size:1em;
-    font-weight:400;
+    font-size: 1em;
+    font-weight: 400;
 }
 
-.divCenter
-{
+.divCenter {
     text-align: center;
 }
 
 /* for input validations */
 
-
-.has-error p,.has-error span {
-  color: red;
-  margin: 0;
+.has-error p, .has-error span {
+    color: red;
+    margin: 0;
 }
 
 /* login validations */
@@ -235,44 +216,35 @@ a.button {
 
 /* end of login validations */
 
-
-
 /* end of input validations */
 
 /* media queries */
 
-
-@media only screen and (min-width : 320px) {
+@media only screen and (min-width: 320px) {
 
     /* for nav bar */
-    .navbar-nav>li
-    {
+    .navbar-nav > li {
         display: block;
         height: 50px;
     }
 
     /* end of nav bar */
-
     /* start of home page quick links stylings */
-    .TableReservationDetails,.EditReservationDetails
-    {
+    .TableReservationDetails, .EditReservationDetails {
         display: block;
     }
-    .dateInputField
-    {
-       width:100%;
+
+    .dateInputField {
+        width: 100%;
     }
-    .textInputField
-    {
-        width:100%;
+
+    .textInputField {
+        width: 100%;
     }
 
     /* end of home page quick links stylings */
-
     /* Start of Edit Reservation Content */
-
-    .editReservationInputFields
-    {
+    .editReservationInputFields {
         display: block;
     }
 
@@ -284,24 +256,19 @@ a.button {
     /* for nav bar */
     .navbar-nav > li {
         float: none;
-        display:inline-block;
-        height:auto;
+        display: inline-block;
+        height: auto;
     }
+
     /* end of nav bar */
-
     /* start of home page quick links stylings */
-
-    .TableReservationDetails,.EditReservationDetails
-    {
+    .TableReservationDetails, .EditReservationDetails {
         display: inline-block;
     }
 
     /* end of home page quick links stylings */
-
     /* Start of Edit Reservation Content */
-
-    .editReservationInputFields
-    {
+    .editReservationInputFields {
         display: inline-block;
     }
 

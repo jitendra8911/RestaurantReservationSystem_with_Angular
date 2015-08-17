@@ -1,16 +1,18 @@
- <!-- Home page content -->
-        <div id="home">
-            <section>
-                <introduction class="description"><h1>Welcome to {{homeVm.restaurantDetails.restaurantName}}</h1> <br>
-                    Open Hours : {{homeVm.restaurantDetails.openTime}} to {{homeVm.restaurantDetails.closingTime}}<br>
-                    Closing Days : We are closed on {{homeVm.restaurantDetails.closingDays}}<br>
-                    Contact us @ {{homeVm.restaurantDetails.telephone}}
-                </introduction>
-            </section>
-            <section class="container">
-                <div class="row">
-                <div class="col-xs-6">
-                <form name="findATableForm" data-ng-submit="homeVm.FindATableForm(findATableForm.$valid,findATableForm.inputDate.$valid,findATableForm.inputTime.$valid)" novalidate>
+<!-- Home page content -->
+<div id="home">
+    <section>
+        <introduction class="description"><h1>Welcome to {{homeVm.restaurantDetails.restaurantName}}</h1> <br>
+            Open Hours : {{homeVm.restaurantDetails.openTime}} to {{homeVm.restaurantDetails.closingTime}}<br>
+            Closing Days : We are closed on {{homeVm.restaurantDetails.closingDays}}<br>
+            Contact us @ {{homeVm.restaurantDetails.telephone}}
+        </introduction>
+    </section>
+    <section class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <form name="findATableForm"
+                      data-ng-submit="homeVm.FindATableForm(findATableForm.$valid,findATableForm.inputDate.$valid,findATableForm.inputTime.$valid)"
+                      novalidate>
                     <div class="divReservationDetails">
             <span class="TableReservationDetails">
                 <select data-ng-model="homeVm.partySize">
@@ -25,50 +27,61 @@
                 </select>
             </span>
             <span class="TableReservationDetails">
-                <input type="date" name="inputDate" class="dateInputField" data-ng-model="homeVm.inputDate" placeholder="yyyy-MM-dd"  required min="{{homeVm.minDate | date:'yyyy-MM-dd'}}"/>
-                 <div data-ng-messages="findATableForm.inputDate.$error" class="has-error" data-ng-if="findATableForm.inputDate.$dirty">
-           <p data-ng-message="required">Date field is required</p> 
-           <p data-ng-show="findATableForm.inputDate.$error.date">Not a valid date!</p>
-                <p data-ng-show="findATableForm.inputDate.$error.min">Minimum date should be today!</p>
-               </div>
+                <input type="date" name="inputDate" class="dateInputField" data-ng-model="homeVm.inputDate"
+                       placeholder="yyyy-MM-dd" required min="{{homeVm.minDate | date:'yyyy-MM-dd'}}"/>
+                 <div data-ng-messages="findATableForm.inputDate.$error" class="has-error"
+                      data-ng-if="findATableForm.inputDate.$dirty">
+                     <p data-ng-message="required">Date field is required</p>
+
+                     <p data-ng-show="findATableForm.inputDate.$error.date">Not a valid date!</p>
+
+                     <p data-ng-show="findATableForm.inputDate.$error.min">Minimum date should be today!</p>
+                 </div>
             </span>
             <span class="TableReservationDetails">
-                <input type="time"  name="inputTime" data-ng-model="homeVm.inputTime"  placeholder="HH:mm" required/>
-                  <div data-ng-messages="findATableForm.inputTime.$error" class="has-error" data-ng-if="findATableForm.inputTime.$dirty">
-           <p data-ng-message="required">Time field is required</p> 
-            <p data-ng-show="findATableForm.inputTime.$error.time">Not a valid time!</p>
-              </div>
+                <input type="time" name="inputTime" data-ng-model="homeVm.inputTime" placeholder="HH:mm" required/>
+                  <div data-ng-messages="findATableForm.inputTime.$error" class="has-error"
+                       data-ng-if="findATableForm.inputTime.$dirty">
+                      <p data-ng-message="required">Time field is required</p>
+
+                      <p data-ng-show="findATableForm.inputTime.$error.time">Not a valid time!</p>
+                  </div>
             </span>
                     </div>
                     <div class="divCreateReservation">
                         <button type="submit" class="button">Find a table</button>
                     </div>
-                         </form>
-                </div>
-            
-                <div class="col-xs-6">
-                <form name="reserveTableForm" data-ng-submit="homeVm.reserveTableForm(reserveTableForm.$valid)" novalidate>
+                </form>
+            </div>
+
+            <div class="col-xs-6">
+                <form name="reserveTableForm" data-ng-submit="homeVm.reserveTableForm(reserveTableForm.$valid)"
+                      novalidate>
                     <div class="divEditReservationDetails">
             <span class="EditReservationDetails">
                 <label for="Confirmation Code">Confirmation Code</label>
             </span>
             <span class="EditReservationDetails" id="Confirmation Code">
-                <input type="text" name="confirmationCode" data-ng-model="homeVm.confirmationCode" class="textInputField" required data-ng-pattern="/^\d+$/"/>
-                  <div data-ng-messages="reserveTableForm.confirmationCode.$error" class="has-error" data-ng-if="reserveTableForm.confirmationCode.$dirty">
-           <p data-ng-message="required">Confirmation Number is required</p> 
-           <p data-ng-message="pattern">Confirmation Number is not valid</p> 
-               </div>
+                <input type="text" name="confirmationCode" data-ng-model="homeVm.confirmationCode"
+                       class="textInputField" required data-ng-pattern="/^\d+$/"/>
+                  <div data-ng-messages="reserveTableForm.confirmationCode.$error" class="has-error"
+                       data-ng-if="reserveTableForm.confirmationCode.$dirty">
+                      <p data-ng-message="required">Confirmation Number is required</p>
+
+                      <p data-ng-message="pattern">Confirmation Number is not valid</p>
+                  </div>
                <div class="has-error">
-               <p data-ng-show="reserveTableForm.confirmationCode.$pristine && homeVm.reserveTableFormsubmitted">Confirmation Code is required </p>
+                   <p data-ng-show="reserveTableForm.confirmationCode.$pristine && homeVm.reserveTableFormsubmitted">
+                       Confirmation Code is required </p>
                </div>
             </span>
                     </div>
                     <div class="divEditReservation">
-                    <button type="submit" class="button">Edit Reservation</button>
-                        </div>
-                   </form>
-                </div>
-                </div>
-            </section>
+                        <button type="submit" class="button">Edit Reservation</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <!-- end of home page content -->
+    </section>
+</div>
+<!-- end of home page content -->

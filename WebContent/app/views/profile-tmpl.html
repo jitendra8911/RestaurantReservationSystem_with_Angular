@@ -1,83 +1,101 @@
- <!-- start of Profile Content -->
-        <div  id="profile" >
-            <section class="sectionProfile">
-                <h1>Profile</h1>
-                <form name="profileForm" data-ng-submit="profileVm.validate(profileForm.$valid)"  novalidate>
-                <div class="divProfile">
+<!-- start of Profile Content -->
+<div id="profile">
+    <section class="sectionProfile">
+        <h1>Profile</h1>
+
+        <form name="profileForm" data-ng-submit="profileVm.validate(profileForm.$valid)" novalidate>
+            <div class="divProfile">
                     <span class="spanProfile">
                         <label for="ProfileName">Restaurant Name</label>
                     </span>
                     <span class="spanProfile" id="ProfileName">
-                        <input name="restaurantName" type="text" data-ng-model="profileVm.restaurantData.restaurantName" data-ng-placeholder='profileVm.placeholder.restaurantName' required/>
+                        <input name="restaurantName" type="text" data-ng-model="profileVm.restaurantData.restaurantName"
+                               data-ng-placeholder='profileVm.placeholder.restaurantName' required/>
                     </span>
-                     <div data-ng-messages="profileForm.restaurantName.$error" class="has-error" data-ng-if="profileForm.restaurantName.$dirty">
-           <p data-ng-message="required">Restaurant Name is required</p> 
-           
-               </div>
-               <div class="has-error">
-               <p data-ng-show="profileForm.restaurantName.$pristine && profileVm.profileFormsubmitted">Restaurant Name is required</p>
-               </div>
-                </div>
 
-                <div class="divProfile">
+                <div data-ng-messages="profileForm.restaurantName.$error" class="has-error"
+                     data-ng-if="profileForm.restaurantName.$dirty">
+                    <p data-ng-message="required">Restaurant Name is required</p>
+
+                </div>
+                <div class="has-error">
+                    <p data-ng-show="profileForm.restaurantName.$pristine && profileVm.profileFormsubmitted">Restaurant
+                        Name is required</p>
+                </div>
+            </div>
+
+            <div class="divProfile">
                     <span class="spanProfile">
                         <label for="ProfileAddress">Address</label>
                     </span>
                     <span class="spanProfile" id="ProfileAddress">
-                        <input name="restaurantAddress" type="text" data-ng-model="profileVm.restaurantData.address" data-ng-placeholder='profileVm.placeholder.address' required/>
+                        <input name="restaurantAddress" type="text" data-ng-model="profileVm.restaurantData.address"
+                               data-ng-placeholder='profileVm.placeholder.address' required/>
                     </span>
-                    
-                     <div data-ng-messages="profileForm.restaurantAddress.$error" class="has-error" data-ng-if="profileForm.restaurantAddress.$dirty">
-           <p data-ng-message="required">Address is required</p> 
-           
-               </div>
-               <div class="has-error">
-               <p data-ng-show="profileForm.restaurantAddress.$pristine && profileVm.profileFormsubmitted">Address is required</p>
-               </div>
-                 </div>
 
-                <div class="divProfile">
+                <div data-ng-messages="profileForm.restaurantAddress.$error" class="has-error"
+                     data-ng-if="profileForm.restaurantAddress.$dirty">
+                    <p data-ng-message="required">Address is required</p>
+
+                </div>
+                <div class="has-error">
+                    <p data-ng-show="profileForm.restaurantAddress.$pristine && profileVm.profileFormsubmitted">Address
+                        is required</p>
+                </div>
+            </div>
+
+            <div class="divProfile">
                     <span class="spanProfile">
                         <label for="ProfileTelephone">Telephone</label>
                     </span>
                     <span class="spanProfile" id="ProfileTelephone">
-                        <input type="tel" name="telephone" data-ng-placeholder='profileVm.placeholder.telephone' data-ng-model="profileVm.restaurantData.telephone" required data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/' >
+                        <input type="tel" name="telephone" data-ng-placeholder='profileVm.placeholder.telephone'
+                               data-ng-model="profileVm.restaurantData.telephone" required
+                               data-ng-pattern='/^[1-9]\d{2}-\d{3}-\d{4}$/'>
                     </span>
-                     <div data-ng-messages="profileForm.telephone.$error" class="has-error" data-ng-if="profileForm.telephone.$dirty">
-           <p data-ng-message="required">Telephone number is required</p> 
-           <p data-ng-message="pattern">Telephone number should be in 999-999-9999 format</p>
-               </div>
-               <div class="has-error">
-               <p data-ng-show="profileForm.telephone.$pristine && profileVm.profileFormsubmitted">Telephone number is required</p>
-               </div>
-                </div>
 
-                <div class="divProfile">
+                <div data-ng-messages="profileForm.telephone.$error" class="has-error"
+                     data-ng-if="profileForm.telephone.$dirty">
+                    <p data-ng-message="required">Telephone number is required</p>
+
+                    <p data-ng-message="pattern">Telephone number should be in 999-999-9999 format</p>
+                </div>
+                <div class="has-error">
+                    <p data-ng-show="profileForm.telephone.$pristine && profileVm.profileFormsubmitted">Telephone number
+                        is required</p>
+                </div>
+            </div>
+
+            <div class="divProfile">
                     <span class="spanProfile">
                         <label for="ProfileEmail">Email</label>
                     </span>
                     <span class="spanProfile" id="ProfileEmail">
-                        <input type="email" name="email" data-ng-placeholder='profileVm.placeholder.email' data-ng-model="profileVm.restaurantData.email" required/>
+                        <input type="email" name="email" data-ng-placeholder='profileVm.placeholder.email'
+                               data-ng-model="profileVm.restaurantData.email" required/>
                     </span>
-                    <div data-ng-messages="profileForm.email.$error" class="has-error" data-ng-if="profileForm.email.$dirty">
-           <p data-ng-message="required">Email is required</p> 
-            <p data-ng-message="email">Email is invalid</p>
-               </div>
-               <div class="has-error">
-               <p data-ng-show="profileForm.email.$pristine && profileVm.profileFormsubmitted">Email is required</p>
-               </div>
-                  
+
+                <div data-ng-messages="profileForm.email.$error" class="has-error"
+                     data-ng-if="profileForm.email.$dirty">
+                    <p data-ng-message="required">Email is required</p>
+
+                    <p data-ng-message="email">Email is invalid</p>
+                </div>
+                <div class="has-error">
+                    <p data-ng-show="profileForm.email.$pristine && profileVm.profileFormsubmitted">Email is
+                        required</p>
                 </div>
 
+            </div>
 
 
-                <div class="divProfile">
+            <div class="divProfile">
                     <span class="spanProfile">
-                        <button type="submit"  class="button" >Update</button>
+                        <button type="submit" class="button">Update</button>
                     </span>
-                </div>
-                </form>
-            </section>
+            </div>
+        </form>
+    </section>
 
-        </div>
-        <!-- End of Profile Content -->
+</div>
+<!-- End of Profile Content -->
